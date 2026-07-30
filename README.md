@@ -20,3 +20,11 @@ npm run build
 The static website is written to `dist/client` and is ready for GitHub Pages. The workflow in `.github/workflows/deploy-pages.yml` deploys every push to `main`.
 
 The custom domain is declared in `public/CNAME` as `henlocal.com`.
+
+The meeting inquiry form submits JSON to the self-hosted inquiry service. Set
+the GitHub Actions repository variable `CONTACT_FORM_ENDPOINT` to the public
+API URL, for example:
+
+```text
+https://forms.pitun.cc/api/inquiries
+```

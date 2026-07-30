@@ -32,15 +32,23 @@ In the GitHub repository:
 
 ## 3. Configure meeting inquiries
 
-GitHub Pages is a static host, so it cannot send email by itself. The inquiry form is prepared to use Formspree for automatic delivery, with a prefilled email fallback when only a contact address is configured.
+GitHub Pages is a static host. The inquiry form therefore submits JSON to the
+self-hosted `contact-inquiry-service` running on the VPS.
 
-1. Create a form at [Formspree](https://formspree.io/) and set its private destination email inside Formspree.
-2. Copy the endpoint, which looks like `https://formspree.io/f/xxxxxxxx`.
-3. In GitHub, open **Settings → Secrets and variables → Actions → Variables**.
-4. Add `CONTACT_FORM_ENDPOINT` with the Formspree endpoint.
-5. Run the Pages workflow again, or push a new commit.
+1. Deploy the inquiry service and confirm that
+   `https://forms.pitun.cc/healthz` returns `{"ok":true}`.
+2. In GitHub, open **Settings → Secrets and variables → Actions → Variables**.
+3. Add `CONTACT_FORM_ENDPOINT` with:
 
-For local preview, copy `.env.example` to `.env.local`, replace the example endpoint, and restart the development server. The destination email remains inside Formspree and is not embedded in the public website.
+   ```text
+   https://forms.pitun.cc/api/inquiries
+   ```
+
+4. Run the Pages workflow again, or push a new commit.
+
+For local preview, copy `.env.example` to `.env.local`, set the same endpoint,
+and restart the development server. The endpoint is public configuration;
+database and administrator credentials remain only on the VPS.
 
 ## 4. Point GoDaddy DNS to GitHub Pages
 

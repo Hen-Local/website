@@ -133,10 +133,25 @@ export default function ContactPage() {
 
     setStatus("sending");
     try {
+      const data = new FormData(form);
       const response = await fetch(formEndpoint, {
         method: "POST",
-        body: new FormData(form),
-        headers: { Accept: "application/json" },
+        body: JSON.stringify({
+          name: String(data.get("name") ?? ""),
+          email: String(data.get("email") ?? ""),
+          organization: String(data.get("organization") ?? ""),
+          event: String(data.get("event") ?? ""),
+          meeting_scale: String(data.get("meeting_scale") ?? ""),
+          language_directions: String(data.get("language_directions") ?? ""),
+          message: String(data.get("message") ?? ""),
+          consent: data.get("consent") === "on",
+          locale,
+          _gotcha: String(data.get("_gotcha") ?? ""),
+        }),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
       });
       if (!response.ok) throw new Error("Form submission failed");
       form.reset();
