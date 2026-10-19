@@ -5,8 +5,12 @@
 import Link from "next/link";
 import { FormEvent, useEffect, useState } from "react";
 import SpotIllustration from "../components/SpotIllustration";
+import { createInquiryPayload } from "./inquiry";
 
 type Locale = "zh" | "en";
+
+const formEndpoint = process.env.NEXT_PUBLIC_CONTACT_FORM_ENDPOINT?.trim()
+  || "https://forms.pitun.cc/api/inquiries";
 
 const copy = {
   zh: {
@@ -37,6 +41,7 @@ const copy = {
     sending: "正在提交…",
     success: "信息已提交。我们会通过邮件与你联系。",
     error: "提交没有成功，请稍后重试。",
+    messageTooLong: "需求描述较长，请适当精简后再提交。",
   },
   en: {
     brand: "HEN LOCAL",
@@ -66,13 +71,14 @@ const copy = {
     sending: "SENDING…",
     success: "Your details were submitted. We’ll follow up by email.",
     error: "The form could not be submitted. Please try again later.",
+    messageTooLong: "Please shorten your description and submit it again.",
   },
 } as const;
 
 export default function ContactPage() {
   const [locale, setLocale] = useState<Locale>("zh");
   const [languageOpen, setLanguageOpen] = useState(false);
-  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error" | "too-long">("idle");
   const t = copy[locale];
   const homeHref = `/?lang=${locale}`;
 
@@ -106,20 +112,21 @@ export default function ContactPage() {
 
     setStatus("sending");
     try {
-      const response = await fetch("/api/inquiry", {
+      const payload = createInquiryPayload(new FormData(form), locale);
+      const response = await fetch(formEndpoint, {
         method: "POST",
-        body: new FormData(form),
-        headers: { Accept: "application/json" },
+        body: JSON.stringify(payload),
+        headers: { Accept: "application/json", "Content-Type": "application/json" },
       });
       if (!response.ok) throw new Error("Form submission failed");
       form.reset();
       setStatus("success");
-    } catch {
-      setStatus("error");
+    } catch (error) {
+      setStatus(error instanceof RangeError ? "too-long" : "error");
     }
   }
 
-  const statusText = status === "sending" ? t.sending : status === "success" ? t.success : status === "error" ? t.error : "";
+  const statusText = status === "sending" ? t.sending : status === "success" ? t.success : status === "error" ? t.error : status === "too-long" ? t.messageTooLong : "";
 
   return (
     <main className="contact-page" data-locale={locale}>
@@ -152,15 +159,14 @@ export default function ContactPage() {
 
         <form className="inquiry-form" onSubmit={submitInquiry}>
           <input className="honeypot" type="text" name="_gotcha" tabIndex={-1} autoComplete="off" />
-          <input type="hidden" name="page_locale" value={locale} />
           <div className="form-grid">
-            <label className="half-field"><span>{t.fields.name} *</span><input name="name" required autoComplete="name" /></label>
-            <label className="half-field"><span>{t.fields.email} *</span><input type="email" name="email" required autoComplete="email" /></label>
-            <label className="full-field"><span>{t.fields.organization} *</span><input name="organization" required autoComplete="organization" /></label>
+            <label className="half-field"><span>{t.fields.name} *</span><input name="name" required maxLength={120} autoComplete="name" /></label>
+            <label className="half-field"><span>{t.fields.email} *</span><input type="email" name="email" required maxLength={254} autoComplete="email" /></label>
+            <label className="full-field"><span>{t.fields.organization} *</span><input name="organization" required maxLength={180} autoComplete="organization" /></label>
             <label className="full-field"><span>{t.fields.message} *</span><textarea name="message" required rows={8} maxLength={2000} aria-describedby="needs-hint" placeholder={t.placeholders.message} /><small className="field-hint" id="needs-hint">{t.needsHint}</small></label>
           </div>
           <label className="consent-field"><input type="checkbox" name="consent" required /><span>{t.fields.consent} *</span></label>
-          <div className="submit-row"><button type="submit" disabled={status === "sending"}>{status === "sending" ? t.sending : t.submit}<span aria-hidden="true">→</span></button>{statusText && <p role="status" className={`form-status status-${status}`}>{statusText}</p>}</div>
+          <div className="submit-row"><button type="submit" disabled={status === "sending"}>{status === "sending" ? t.sending : t.submit}<span aria-hidden="true">→</span></button>{statusText && <p role="status" className={`form-status status-${status === "too-long" ? "error" : status}`}>{statusText}</p>}</div>
         </form>
       </section>
     </main>

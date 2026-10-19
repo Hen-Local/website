@@ -1,35 +1,40 @@
 # 很 Local 网站
 
-Marketing website for [很 Local 实时翻译](https://github.com/Hen-Local/Hen-Local-Translator), an offline live translation app for macOS and the first product in the 很 Local product family.
+Marketing website for [很 Local 实时翻译](https://github.com/Hen-Local/Hen-Local-Translator), an offline live translation app for macOS.
 
 ## Local development
 
 Requires Node.js 22.13 or newer.
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
-## Production build
+The inquiry form uses the existing VPS service at
+`https://forms.pitun.cc/api/inquiries`. To override the endpoint for local
+development, copy `.env.example` to `.env.local` and restart the dev server.
+This endpoint is public configuration, not a credential.
+
+## Build and validation
 
 ```bash
-npm run build
+npm run lint
+npm test
 ```
 
-The production Worker and static assets are written to `dist/server` and
-`dist/client`.
+`npm test` builds the site and checks the exported pages and inquiry payload.
+The static site is written to `dist/client`.
 
-## Cloudflare deployment
+## Deployment
 
-```bash
-npx wrangler login
-npm run deploy
-```
+Push `main` to [Hen-Local/website](https://github.com/Hen-Local/website).
+GitHub Actions builds and publishes `dist/client` to GitHub Pages at
+[henlocal.com](https://henlocal.com/).
 
-The Cloudflare Worker serves the website and the `/api/inquiry` email endpoint.
-The email destination is stored in encrypted Cloudflare Worker secrets and is
-not exposed to the browser.
+Inquiries are submitted as JSON directly to the existing
+[VPS inquiry service](https://github.com/Hen-Local/contact-inquiry-service)
+and stored in its database. The website does not need Cloudflare deployment
+tokens, an email Worker, or administrator/database credentials.
 
-See [DEPLOYMENT.md](./DEPLOYMENT.md) for domain, email, GitHub Actions, and
-custom-domain setup.
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for the Pages workflow and form contract.

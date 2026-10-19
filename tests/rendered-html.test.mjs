@@ -48,10 +48,19 @@ test("exports the meeting inquiry form", async () => {
   assert.match(html, /现有 Mac 配置如何/);
   assert.match(html, /哪些语言之间的翻译/);
   assert.match(html, /提交需求，获取方案/);
-  assert.match(source, /\/api\/inquiry/);
+  assert.match(source, /NEXT_PUBLIC_CONTACT_FORM_ENDPOINT/);
+  assert.match(source, /https:\/\/forms\.pitun\.cc\/api\/inquiries/);
+  assert.match(source, /JSON\.stringify\(payload\)/);
+  assert.match(source, /"Content-Type": "application\/json"/);
   assert.match(source, /name="message"/);
   assert.doesNotMatch(source, /name="(?:device|event|meeting_scale|language_directions)"/);
   assert.match(html, /href="\/?\?lang=zh"/);
   assert.doesNotMatch(html, /hzeng49@gmail\.com|mailto:/);
-  assert.doesNotMatch(source, /formspree|NEXT_PUBLIC_CONTACT_FORM_ENDPOINT/i);
+  assert.doesNotMatch(source, /formspree|fetch\("\/api\/inquiry"/i);
+});
+
+test("includes the GitHub Pages custom-domain files", async () => {
+  const domain = await readFile(new URL("../dist/client/CNAME", import.meta.url), "utf8");
+  assert.equal(domain.trim(), "henlocal.com");
+  await readFile(new URL("../dist/client/.nojekyll", import.meta.url));
 });
