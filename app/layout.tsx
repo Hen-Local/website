@@ -1,6 +1,21 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
+// Register before the router's module scripts. On GitHub Pages, Vinext's
+// popstate handler refetches RSC for native anchors, then falls back to the
+// same hash and loops. Same-document history should stay with the browser.
+const staticNavigationScript = `(() => {
+  const pageUrl = location.pathname + location.search;
+  window.addEventListener("popstate", (event) => {
+    if (location.pathname + location.search !== pageUrl) return;
+    event.stopImmediatePropagation();
+    history.scrollRestoration = "auto";
+  }, true);
+  window.addEventListener("pageshow", () => {
+    history.scrollRestoration = "auto";
+  });
+})();`;
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://henlocal.com"),
   title: "很 Local 实时翻译 — 在你自己的 Mac 上完成",
@@ -42,6 +57,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="zh-CN">
       <head>
+        <script id="static-page-navigation" dangerouslySetInnerHTML={{ __html: staticNavigationScript }} />
         <link rel="icon" href="/icon.png?v=20260721" type="image/png" />
         <link rel="shortcut icon" href="/icon.png?v=20260721" type="image/png" />
         <link rel="apple-touch-icon" href="/icon.png?v=20260721" />

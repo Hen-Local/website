@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
+import { runInNewContext } from "node:vm";
 
 test("exports the 很 Local landing page", async () => {
   const html = await readFile(new URL("../dist/client/index.html", import.meta.url), "utf8");
@@ -63,4 +64,39 @@ test("includes the GitHub Pages custom-domain files", async () => {
   const domain = await readFile(new URL("../dist/client/CNAME", import.meta.url), "utf8");
   assert.equal(domain.trim(), "henlocal.com");
   await readFile(new URL("../dist/client/.nojekyll", import.meta.url));
+});
+
+test("keeps same-document history out of the static host's RSC navigation loop", async () => {
+  const html = await readFile(new URL("../dist/client/index.html", import.meta.url), "utf8");
+  const match = html.match(/<script id="static-page-navigation">([\s\S]*?)<\/script>/);
+  assert.ok(match, "the static export must initialize native anchor handling before hydration");
+  assert.ok(match.index < html.indexOf("</head>"));
+
+  const window = new EventTarget();
+  const location = { pathname: "/", search: "?lang=zh", hash: "" };
+  const history = { scrollRestoration: "manual" };
+  runInNewContext(match[1], { window, location, history });
+  let routerRequests = 0;
+  window.addEventListener("popstate", () => { routerRequests += 1; });
+
+  // Native anchors and browser back/forward must not refetch the current page.
+  for (const hash of ["#how-it-works", "#projects", "#cost", "#projects", ""]) {
+    location.hash = hash;
+    window.dispatchEvent(new Event("popstate"));
+    assert.equal(routerRequests, 0);
+    assert.equal(history.scrollRestoration, "auto");
+  }
+
+  // Actual page/query navigation still reaches the router.
+  location.pathname = "/contact/";
+  window.dispatchEvent(new Event("popstate"));
+  assert.equal(routerRequests, 1);
+  location.pathname = "/";
+  location.search = "?lang=en";
+  window.dispatchEvent(new Event("popstate"));
+  assert.equal(routerRequests, 2);
+
+  history.scrollRestoration = "manual";
+  window.dispatchEvent(new Event("pageshow"));
+  assert.equal(history.scrollRestoration, "auto");
 });
