@@ -1,6 +1,6 @@
 "use client";
 
-/* eslint-disable @next/next/no-img-element -- locally stored event photography and key visuals */
+/* eslint-disable @next/next/no-img-element -- locally stored event key visuals */
 
 import { useEffect, useRef, useState } from "react";
 
@@ -166,10 +166,13 @@ export default function ProjectCarousel({ projects, locale, labels }: {
     <section className="projects-section" id="projects" aria-labelledby="projects-title" ref={sectionRef}>
       <div className="projects-heading">
         <div><span className="story-label">{labels.projectsTag}</span><h2 id="projects-title">{labels.projectsTitle}</h2><p>{labels.projectsIntro}</p></div>
-        <div className="project-controls">
-          <button type="button" aria-label={labels.projectPrevious} aria-controls="project-carousel" onClick={() => scrollProjects(-1)}><span aria-hidden="true">←</span></button>
-          <button className="project-playback" type="button" aria-label={isPlaying ? labels.projectPause : labels.projectPlay} aria-pressed={!isPlaying} aria-controls="project-carousel" onClick={() => setIsPlaying((playing) => !playing)}><span aria-hidden="true">{isPlaying ? "Ⅱ" : "▷"}</span></button>
-          <button type="button" aria-label={labels.projectNext} aria-controls="project-carousel" onClick={() => scrollProjects(1)}><span aria-hidden="true">→</span></button>
+        <div className="project-navigation">
+          <span className="project-position" aria-hidden="true"><b>{String(activeProject + 1).padStart(2, "0")}</b><span>/ {String(projects.length).padStart(2, "0")}</span></span>
+          <div className="project-controls">
+            <button type="button" aria-label={labels.projectPrevious} aria-controls="project-carousel" onClick={() => scrollProjects(-1)}><span aria-hidden="true">←</span></button>
+            <button className="project-playback" type="button" aria-label={isPlaying ? labels.projectPause : labels.projectPlay} aria-pressed={!isPlaying} aria-controls="project-carousel" onClick={() => setIsPlaying((playing) => !playing)}><span aria-hidden="true">{isPlaying ? "Ⅱ" : "▷"}</span></button>
+            <button type="button" aria-label={labels.projectNext} aria-controls="project-carousel" onClick={() => scrollProjects(1)}><span aria-hidden="true">→</span></button>
+          </div>
         </div>
       </div>
       <div className="project-carousel" id="project-carousel" ref={carouselRef} role="region" aria-roledescription="carousel" aria-label={labels.projectGalleryLabel} tabIndex={0} onKeyDown={(event) => {
@@ -182,24 +185,22 @@ export default function ProjectCarousel({ projects, locale, labels }: {
       }}>
         {[0, 1, 2].flatMap((copy) => projects.map((project, index) => (
           <article className="project-card" data-project-copy={copy} data-project-index={index} aria-hidden={copy !== 1 ? true : undefined} key={`${copy}-${project.website}`}>
+            <div className="project-card-topline"><span className="project-card-index" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span><p className="project-scale" aria-label={labels.projectScaleLabel}>{project.scale[locale]}</p></div>
             <a className="project-card-link" href={project.website} target="_blank" rel="noreferrer" tabIndex={copy === 1 ? undefined : -1} aria-label={`${project.name[locale]} · ${labels.projectWebsite}`}>
               <div className={`project-artwork project-artwork--${project.artwork}`}>
                 <img className="project-image" src={project.image} alt={copy === 1 ? project.imageAlt[locale] : ""} width="1200" height="750" loading="lazy" decoding="async" draggable={false} />
                 {project.imageOverlay && <img className="project-image-overlay" src={project.imageOverlay} alt="" width="1400" height="136" loading="lazy" decoding="async" draggable={false} />}
                 {project.artwork === "rust" && <div className="project-kv-title" aria-hidden="true"><strong>RustChinaConf</strong><span>SHENZHEN 2026</span></div>}
-                <span className="project-image-link" aria-hidden="true">↗</span>
               </div>
-              <h3>{project.name[locale]}</h3>
+              <div className="project-card-title"><h3>{project.name[locale]}</h3><span aria-hidden="true">↗</span></div>
             </a>
             <p className="project-detail">{project.detail[locale]}</p>
             <div className="project-card-meta">
               <p className="project-date"><time dateTime={project.start}>{project.start.replaceAll("-", ".")}</time><span>–</span><time dateTime={project.end}>{project.end.slice(5).replace("-", ".")}</time></p>
-              <p className="project-scale" aria-label={labels.projectScaleLabel}>{project.scale[locale]}</p>
             </div>
           </article>
         )))}
       </div>
-      <div className="project-gallery-footer" aria-hidden="true"><div className="project-scroll-track"><span style={{ width: `${100 / projects.length}%`, left: `${activeProject / projects.length * 100}%` }} /></div><span>{String(activeProject + 1).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}</span></div>
     </section>
   );
 }

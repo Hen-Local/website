@@ -14,6 +14,19 @@
     "original": "https://paris2026.gosim.org/images/homepage/gallery2026/paris2026-01.jpg",
     "description": "Official GOSIM Paris 2026 event gallery photograph"
   },
+  "gosim-shenzhen-2026-kv.jpg": {
+    "page": "https://shenzhen2026.gosim.org/",
+    "original": "KV.jpg",
+    "sourceType": "user-provided",
+    "eventWebsite": "https://shenzhen2026.gosim.org/",
+    "description": "User-provided GOSIM Shenzhen 2026 key visual, optimized to 1600 × 900 for web display"
+  },
+  "gosim-paris-2026-kv.jpg": {
+    "page": "https://www.eventbrite.com/e/gosim-paris-2026-tickets-1984013840806",
+    "original": "https://cdn.evbuc.com/images/1178972956/473952667427/1/original.20260304-022411",
+    "eventWebsite": "https://paris2026.gosim.org/",
+    "description": "GOSIM Paris 2026 ticketing key visual with illustrated Paris landmarks; May 5–6 main conference"
+  },
   "coc-asia-2026.webp": {
     "page": "https://asia.communityovercode.org/",
     "original": "https://asia.communityovercode.org/images/2026-banner-bg-v1.jpg",
