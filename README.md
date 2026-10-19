@@ -17,6 +17,19 @@ npm run dev
 npm run build
 ```
 
-The static website is written to `dist/client` and is ready for GitHub Pages. The workflow in `.github/workflows/deploy-pages.yml` deploys every push to `main`.
+The production Worker and static assets are written to `dist/server` and
+`dist/client`.
 
-The custom domain is declared in `public/CNAME` as `henlocal.com`.
+## Cloudflare deployment
+
+```bash
+npx wrangler login
+npm run deploy
+```
+
+The Cloudflare Worker serves the website and the `/api/inquiry` email endpoint.
+The email destination is stored in encrypted Cloudflare Worker secrets and is
+not exposed to the browser.
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for domain, email, GitHub Actions, and
+custom-domain setup.

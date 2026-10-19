@@ -1,0 +1,32 @@
+{
+  "agic-2026.webp": {
+    "page": "https://www.agicexpo.com/SZ/NewsView-92B2796051FAC805",
+    "original": "https://s1.iotexpo.com.cn/ue/25/30/6389743588131803694064725.png",
+    "description": "Official AGIC 2026 key visual"
+  },
+  "gosim-shenzhen-2026.webp": {
+    "page": "https://shenzhen2026.gosim.org/",
+    "original": "https://shenzhen2026.gosim.org/_astro/group-photo.L-1ZWFf7_1zaHBR.webp",
+    "description": "Official GOSIM Shenzhen 2026 group photograph"
+  },
+  "gosim-paris-2026.webp": {
+    "page": "https://paris2026.gosim.org/",
+    "original": "https://paris2026.gosim.org/images/homepage/gallery2026/paris2026-01.jpg",
+    "description": "Official GOSIM Paris 2026 event gallery photograph"
+  },
+  "coc-asia-2026.webp": {
+    "page": "https://asia.communityovercode.org/",
+    "original": "https://asia.communityovercode.org/images/2026-banner-bg-v1.jpg",
+    "description": "Official Community Over Code Asia 2026 key visual background"
+  },
+  "coc-asia-2026-title.webp": {
+    "page": "https://asia.communityovercode.org/",
+    "original": "https://asia.communityovercode.org/images/2026-title-en-v1.png",
+    "description": "Official Community Over Code Asia 2026 title overlay"
+  },
+  "rustchina-2026.webp": {
+    "page": "https://rustchinaconf.org/",
+    "original": "https://rustchinaconf.org/hero/rustchinaconf-shenzhen-2026-banner.png",
+    "description": "Official RustChinaConf Shenzhen 2026 hero background"
+  }
+}
