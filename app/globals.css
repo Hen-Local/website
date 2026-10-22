@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Manrope";
+  src: url("/fonts/manrope-latin-variable.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+}
+
 :root {
   --paper: #ffffff;
   --ink: #111111;
@@ -23,6 +31,7 @@ body {
   font-family: Arial, Helvetica, "SF Pro Display", sans-serif;
   text-rendering: geometricPrecision;
 }
+html[lang="en"] body { font-family: "Manrope", Arial, Helvetica, "SF Pro Display", sans-serif; }
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
 h1, h2, h3 { text-wrap: balance; }
@@ -62,8 +71,8 @@ main[data-locale="zh"] { font-family: "PingFang SC", "Microsoft YaHei", "Noto Sa
 .language-trigger:hover, .language-trigger[aria-expanded="true"] { background: #ededed; }
 .language-trigger span { font-size: 10px; }
 .language-popover { width: 132px; padding: 6px; position: absolute; z-index: 80; top: calc(100% + 8px); right: 0; display: grid; background: white; border: 1px solid var(--line); box-shadow: 0 8px 24px rgba(0,0,0,.1); }
-.language-popover button { min-height: 42px; padding: 0 11px; border: 0; background: transparent; color: var(--ink); text-align: left; font: inherit; font-size: 13px; cursor: pointer; }
-.language-popover button:hover, .language-popover button[aria-pressed="true"] { background: var(--ink); color: white; }
+.language-popover a { min-height: 42px; padding: 0 11px; display: flex; align-items: center; background: transparent; color: var(--ink); text-align: left; font: inherit; font-size: 13px; cursor: pointer; }
+.language-popover a:hover, .language-popover a:focus-visible, .language-popover a[aria-current="true"] { background: var(--ink); color: white; }
 
 .hero {
   padding: 72px var(--page-gutter) 88px;
@@ -180,6 +189,11 @@ main[data-locale="zh"] .privacy-heading h2, main[data-locale="zh"] .use-cases-he
 .workflow-diagram picture { display: block; }
 .workflow-illustration { width: 100%; height: auto; max-width: 100%; margin-inline: auto; }
 .workflow-section + .projects-section { padding-top: 40px; }
+
+@media (min-width: 701px) {
+  /* Keep localized artwork at the same height, trimming only its white margins. */
+  .workflow-illustration { aspect-ratio: 1983 / 520; object-fit: cover; }
+}
 
 .use-cases-section { border-bottom: 1px solid var(--line); }
 .use-cases-heading, .cost-heading { padding: clamp(48px, 6vw, 80px) var(--page-gutter) 32px; }

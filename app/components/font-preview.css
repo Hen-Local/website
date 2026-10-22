@@ -1,0 +1,81 @@
+@font-face { font-family: "Hen Preview Inter"; src: url("/fonts/preview/inter-latin-variable.woff2") format("woff2"); font-style: normal; font-weight: 100 900; font-display: swap; }
+@font-face { font-family: "Hen Preview DM Sans"; src: url("/fonts/preview/dm-sans-latin-variable.woff2") format("woff2"); font-style: normal; font-weight: 100 1000; font-display: swap; }
+@font-face { font-family: "Hen Preview Space Grotesk"; src: url("/fonts/preview/space-grotesk-latin-variable.woff2") format("woff2"); font-style: normal; font-weight: 300 700; font-display: swap; }
+
+.font-study { padding: 0 clamp(20px, 3.3vw, 64px) 28px; max-width: 1680px; margin-inline: auto; font-family: Arial, Helvetica, sans-serif; }
+.font-study button { font: inherit; cursor: pointer; }
+.font-study-header { min-height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 24px; border-bottom: 1px solid var(--line); font-size: 11px; font-weight: 600; letter-spacing: .04em; }
+.font-study-header > span { color: var(--muted); font-size: 10px; }
+.font-study-header > a:last-child { color: var(--blue); }
+.font-study-intro { padding-block: 38px 28px; }
+.font-study-intro h1 { margin: 12px 0; font-size: clamp(30px, 3.2vw, 44px); line-height: 1.15; letter-spacing: -.045em; font-weight: 600; text-wrap: initial; }
+.font-study-intro > p { max-width: 660px; margin: 0; font-size: 14px; line-height: 1.8; color: #625d56; }
+.font-study-options { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.font-study-option { min-width: 0; padding: 18px; display: grid; gap: 10px; background: white; color: var(--ink); border: 1px solid var(--line); text-align: left; }
+.font-study-option:hover { border-color: var(--ink); }
+.font-study-option[aria-pressed="true"] { border-color: var(--blue); box-shadow: inset 0 0 0 1px var(--blue); }
+.font-study-option-meta { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 10px; line-height: 1; letter-spacing: .04em; }
+.font-study-pick { color: var(--blue); font-size: 8px; }
+.font-study-radio { margin-left: auto; color: var(--blue); font-size: 16px; }
+.font-study-option > strong { margin-top: 4px; font-size: clamp(20px, 2vw, 27px); letter-spacing: -.035em; font-weight: 650; line-height: 1.2; }
+.font-study-option > span:not([class]) { font-size: 11px; color: var(--muted); }
+.font-study-mini { margin-top: 8px; font-size: 17px; line-height: 1.4; font-weight: 500; letter-spacing: -.02em; }
+.font-study-toolbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding-block: 24px 16px; }
+.font-study-modes { display: flex; gap: 0; border: 1px solid var(--line); }
+.font-study-modes button, .font-study-baseline { min-height: 36px; padding: 8px 14px; background: white; border: 0; color: #746f66; font-size: 12px; }
+.font-study-modes button + button { border-left: 1px solid var(--line); }
+.font-study-modes button[aria-pressed="true"] { background: var(--ink); color: white; }
+.font-study-baseline { margin-right: auto; border: 1px solid transparent; }
+.font-study-baseline:hover, .font-study-baseline[aria-pressed="true"] { border-color: var(--blue); color: var(--blue); }
+.font-study-live, .font-study-specimen { border: 1px solid var(--line); }
+.font-study-live-caption { min-height: 65px; padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.font-study-live-caption > div { display: flex; align-items: baseline; flex-wrap: wrap; gap: 12px; }
+.font-study-live-caption strong { font-size: 14px; font-weight: 600; }
+.font-study-live-caption span { color: var(--muted); font-size: 11px; line-height: 1.6; }
+.font-study-ready { flex-shrink: 0; font-variant-numeric: tabular-nums; }
+.font-study-stage { padding: 24px; background: #f1f1ef; border-block: 1px solid var(--line); }
+.font-study-frame-observer { width: 100%; display: flex; justify-content: center; }
+.font-study-frame-box { position: relative; overflow: hidden; background: white; box-shadow: 0 2px 16px rgba(0, 0, 0, .06); }
+.font-study-frame-box iframe { position: absolute; left: 0; top: 0; display: block; max-width: none; border: 0; transform-origin: top left; background: white; }
+.font-study-hint { padding: 14px 20px; margin: 0; color: var(--muted); font-size: 11px; line-height: 1.7; }
+.font-study-comparison { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.font-study-specimen { min-width: 0; }
+.font-study-specimen-heading { padding: 15px 22px; display: flex; justify-content: space-between; align-items: center; gap: 12px; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 11px; }
+.font-study-specimen-heading button { padding: 4px 0; border: 0; background: none; color: var(--blue); font-size: 11px; }
+.font-study-specimen-copy { padding: clamp(22px, 3vw, 40px); }
+.font-study-specimen-copy > span { font-size: 10px; font-weight: 600; letter-spacing: .04em; }
+.font-study-specimen-copy h2 { margin: 28px 0 22px; font-size: 32px; font-weight: 650; line-height: 1.22; letter-spacing: -.045em; text-wrap: initial; }
+.font-study-specimen-copy em { font-style: normal; text-decoration: underline; text-decoration-color: var(--blue); text-decoration-thickness: 2px; text-underline-offset: .18em; }
+.font-study-specimen-copy p { max-width: 440px; margin: 0; color: #58534c; font-size: 15px; line-height: 1.85; }
+.font-study-specimen-button { width: max-content; min-height: 46px; padding: 0 18px; margin-top: 28px; display: flex; align-items: center; gap: 24px; background: var(--blue); color: white; font-size: 12px; font-weight: 600; letter-spacing: .03em; }
+.font-study-specimen-copy h3 { margin: 32px 0 18px; font-size: 22px; line-height: 1.35; font-weight: 600; letter-spacing: -.035em; text-wrap: initial; }
+.font-study-specimen-copy .font-study-glyphs { padding-top: 16px; border-top: 1px solid var(--line); font-size: 18px; letter-spacing: .025em; color: var(--ink); }
+.font-study-footer { padding: 24px 0 0; margin: 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; background: white; color: var(--muted); border: 0; font-size: 11px; line-height: 1.7; }
+.font-study-footer > div { display: flex; flex-wrap: wrap; gap: 16px; }
+.font-study-footer a { font: inherit; letter-spacing: 0; }
+.font-canvas-bar { min-height: 42px; padding: 8px 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px; background: var(--ink); color: white; font-family: Arial, Helvetica, sans-serif; font-size: 12px; }
+.font-canvas-bar span { display: flex; align-items: center; gap: 12px; }
+.font-canvas-bar small { color: #bdbdbd; font-size: 10px; }
+
+@media (max-width: 700px) {
+  .font-study-header { min-height: 60px; gap: 12px; font-size: 10px; }
+  .font-study-header > span { display: none; }
+  .font-study-intro { padding-block: 28px 22px; }
+  .font-study-intro > p { font-size: 13px; }
+  .font-study-options { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .font-study-option { padding: 14px; gap: 8px; }
+  .font-study-mini { font-size: 14px; }
+  .font-study-option > span:not([class]) { font-size: 10px; }
+  .font-study-toolbar { gap: 10px; padding-top: 18px; }
+  .font-study-modes button, .font-study-baseline { padding-inline: 10px; font-size: 11px; }
+  .font-study-live-caption { padding: 12px 14px; gap: 12px; }
+  .font-study-live-caption > div { gap: 4px; }
+  .font-study-live-caption > div > span { font-size: 10px; }
+  .font-study-ready { max-width: 88px; font-size: 10px; }
+  .font-study-stage { padding: 12px; }
+  .font-study-hint { padding: 12px 14px; }
+  .font-study-comparison { grid-template-columns: 1fr; }
+  .font-study-specimen-copy h2 { font-size: 30px; }
+  .font-study-specimen-heading { padding-inline: 20px; }
+  .font-study-footer { align-items: flex-start; flex-direction: column; }
+}

@@ -1,0 +1,290 @@
+{
+  "common": {
+    "languageLabel": "Language",
+    "languages": {
+      "zh": "中文",
+      "en": "English"
+    },
+    "currentLanguage": "EN"
+  },
+  "home": {
+    "brandName": "HEN LOCAL",
+    "productName": "LIVE TRANSLATOR",
+    "previewLabel": "HEN LOCAL LIVE TRANSLATOR interface preview",
+    "homeLabel": "HEN LOCAL home",
+    "navLabel": "Primary navigation",
+    "nav": {
+      "0": "HOW IT WORKS",
+      "1": "EVENTS",
+      "2": "PRIVACY",
+      "3": "USE CASES",
+      "4": "COST"
+    },
+    "contactLink": "CONTACT",
+    "edition": "PRIVATE, ON-DEVICE TRANSLATION",
+    "platform": "YOUR MAC · CORE TRANSLATION WORKS OFFLINE",
+    "hero": {
+      "0": "Live meeting translation,",
+      "1": "on your own Mac."
+    },
+    "lede": "Turn meeting audio into bilingual captions and translated speech on your Apple silicon Mac. No audio uploads. Works offline once models are ready.",
+    "seeHow": "HOW IT WORKS",
+    "accessNote": "Processing and default data storage stay on your computer.",
+    "requirements": "macOS 14+ · Apple silicon Mac",
+    "projectsTag": "IN THE FIELD · ON-DEVICE TRANSLATION",
+    "projectsTitle": "Event deployments",
+    "projectsIntro": "From community meetups to major exhibitions.",
+    "projectGalleryLabel": "Event deployments, scroll horizontally to explore",
+    "projectPrevious": "Previous events",
+    "projectNext": "More events",
+    "projectWebsite": "Visit official event website",
+    "projectPause": "Pause automatic scrolling",
+    "projectPlay": "Resume automatic scrolling",
+    "projectScaleLabel": "Event scale",
+    "app": {
+      "ready": "LOCAL AI READY",
+      "route": "LANGUAGE + AUDIO",
+      "source": "SOURCE",
+      "target": "TARGET",
+      "sourceValue": "English",
+      "targetValue": "中文",
+      "input": "MEETING AUDIO · CAPTIONS · SPOKEN INTERPRETATION",
+      "start": "START MEETING",
+      "live": "LIVE",
+      "sampleSource": "Local translation is private and safe.",
+      "sampleTarget": "本地翻译隐私又安全。"
+    },
+    "ticker": {
+      "0": "MEETING INTERPRETATION",
+      "1": "LIVE CAPTIONS",
+      "2": "SPOKEN OUTPUT",
+      "3": "BLUETOOTH AUDIO",
+      "4": "ON-DEVICE",
+      "5": "PRIVATE",
+      "6": "SYSTEM AUDIO",
+      "7": "REAL-TIME"
+    },
+    "useCasesTag": "PRODUCT CAPABILITY · LIVE CAPTIONS + INTERPRETATION",
+    "useCasesTitle": {
+      "0": "The speaker keeps speaking.",
+      "1": "Everyone else keeps up."
+    },
+    "useCasesIntro": "Speakers keep speaking. Attendees follow along through bilingual captions, Bluetooth headphones, or venue audio.",
+    "useCases": {
+      "0": {
+        "0": "Keynotes + presentations",
+        "1": "Show bilingual captions on the main screen and route translated speech to headphones or venue audio.",
+        "2": "MAIN STAGE · ONE-TO-MANY"
+      },
+      "1": {
+        "0": "Workshops + training",
+        "1": "Help participants follow longer, terminology-heavy, interactive sessions with captions and spoken output together.",
+        "2": "LONG FORM · INTERACTIVE"
+      },
+      "2": {
+        "0": "Conferences + launches",
+        "1": "Give multilingual audiences one clear way to follow the event and retain bilingual records for follow-up.",
+        "2": "LARGE EVENTS · REVIEWABLE"
+      },
+      "3": {
+        "0": "Global company meetings",
+        "1": "Connect room microphones or Mac system audio so in-person and remote attendees can read and hear the translation.",
+        "2": "MEETING ROOM · HYBRID"
+      }
+    },
+    "fitTitle": "A STRONG FIT",
+    "fitCopy": "Structured meetings, presentations, training, launches, and repeated use where privacy and predictable cost matter.",
+    "notFitTitle": "KEEP A HUMAN INTERPRETER OR REVIEWER",
+    "notFitCopy": "Diplomatic, legal, or medical events; heavy cross-talk and noise; or meetings requiring professional interpreter accountability.",
+    "whyTag": "ADVANTAGE 01 · MEETING DATA STAYS LOCAL",
+    "privacyKicker": "ON-DEVICE PROCESSING WITH A CLEAR DATA BOUNDARY",
+    "privacyTitle": {
+      "0": "No audio uploads.",
+      "1": "No cloud transcript."
+    },
+    "privacyCopy": "Recognition, translation, and speech generation run on your Mac. Processing and default data storage stay on your computer.",
+    "localValues": {
+      "0": {
+        "0": "Local by default",
+        "1": "Audio, transcripts, translation, and generated speech do not need to be uploaded."
+      },
+      "1": {
+        "0": "Works offline",
+        "1": "Once models are ready, core translation does not depend on venue internet."
+      },
+      "2": {
+        "0": "More predictable cost",
+        "1": "Longer sessions do not create additional cloud transcription, translation, and speech-output usage fees."
+      }
+    },
+    "orbit": {
+      "0": "AUDIO",
+      "1": "TRANSCRIPT",
+      "2": "TRANSLATION"
+    },
+    "stays": "LOCAL BY DEFAULT",
+    "costTag": "COST MODEL",
+    "costTitle": {
+      "0": "Run more meetings",
+      "1": "without per-minute cloud fees."
+    },
+    "costIntro": "Core processing runs on the Mac you have, without cloud usage fees tied to meeting length. Built for long sessions and frequent use.",
+    "costCards": {
+      "0": {
+        "0": "HEN LOCAL",
+        "1": "ON-DEVICE PROCESSING",
+        "2": "No cloud usage fee tied to meeting length",
+        "3": "Software licensing, deployment support, and event services are quoted for the actual meeting."
+      },
+      "1": {
+        "0": "iFLYREC Enterprise",
+        "1": "FROM ¥4,080 / 100 HOURS",
+        "2": "ABOUT ¥40.8 / HOUR",
+        "3": "¥18,000 for 500 hours and ¥33,600 for 1,000 hours. Term and service scope follow the official offer."
+      },
+      "2": {
+        "0": "Maestra Real-Time",
+        "1": "$79 / MONTH",
+        "2": "180 MINUTES / LANGUAGE",
+        "3": "Business is $159/month with 360 minutes of real-time translation or 180 minutes of real-time dubbing."
+      }
+    },
+    "costSourceLabel": "PUBLIC PRICE REFERENCES",
+    "costDisclaimer": "Prices checked July 21, 2026 and shown only to explain billing models. Scope, languages, taxes, hardware, and human support differ, and competitor pricing may change.",
+    "featuresTag": "BUILT TO DISAPPEAR",
+    "featuresTitle": {
+      "0": "Keep everyone",
+      "1": "with the meeting."
+    },
+    "featuresIntro": "A Mac app designed around multilingual meetings—from room audio to captions and spoken interpretation, without sending the meeting to the cloud.",
+    "features": {
+      "0": {
+        "0": "Live meeting captions",
+        "1": "Capture room microphones or system audio and show source and translated text while the meeting is happening."
+      },
+      "1": {
+        "0": "Spoken interpretation",
+        "1": "Play translated speech through Bluetooth headphones, system speakers, or a selected audio output device."
+      },
+      "2": {
+        "0": "Private on-device processing",
+        "1": "Recognition, translation, and speech generation run locally on an Apple silicon Mac."
+      },
+      "3": {
+        "0": "Meeting records",
+        "1": "Export or automatically save bilingual transcripts for follow-up without uploading the recording to the cloud."
+      }
+    },
+    "howTag": "HOW IT WORKS · ON YOUR MAC",
+    "howTitle": "From a spoken word to a shared understanding.",
+    "diagramLabel": "How it works: a microphone captures the speaker, the Mac recognizes and translates locally, and a TV displays bilingual captions.",
+    "faqTag": "FAQ",
+    "faqTitle": "Common questions",
+    "faqs": {
+      "0": {
+        "0": "Does it really work without an internet connection?",
+        "1": "Once the models are installed, core speech recognition and translation work offline. Model downloads, software updates, or license setup may require a brief connection."
+      },
+      "1": {
+        "0": "Which Macs can run it?",
+        "1": "You need an Apple silicon Mac running macOS 14 or later. In our tests, a 2021 MacBook Pro with an M1 Pro chip and 16GB of memory runs smoothly."
+      },
+      "2": {
+        "0": "Are meeting audio and transcripts saved or uploaded?",
+        "1": "Processing and default data storage stay on the Mac. Meeting audio is not uploaded to complete translation; shareable files are created only when you choose to export or share them."
+      },
+      "3": {
+        "0": "What input and output hardware do I need?",
+        "1": "For audio input, we have tested microphones connected through an audio interface, USB microphones, and DJI wireless microphones; all work well. Bilingual captions can be displayed on a TV, projector, or venue screen over HDMI or screen casting."
+      },
+      "4": {
+        "0": "Does it replace a professional interpreter?",
+        "1": "Not in every setting. Structured business meetings and training are good candidates for assessment; high-risk or accountability-heavy events should retain a professional interpreter or human review."
+      }
+    },
+    "commercialTag": "GET A MEETING PLAN",
+    "commercialTitle": {
+      "0": "Your next meeting.",
+      "1": "A little more connected."
+    },
+    "commercialCopy": "Share your Mac, meeting size, and languages. We’ll reply by email with a recommended setup.",
+    "commercialNote": "YOUR MAC · MEETING SIZE · LANGUAGES",
+    "contactCta": "GET A RECOMMENDED SETUP",
+    "footerLine": "NO UPLOADS. OFFLINE CORE TRANSLATION ON YOUR EXISTING MAC.",
+    "footerLinks": {
+      "0": "PRIVACY",
+      "1": "HOW IT WORKS",
+      "2": "USE CASES",
+      "3": "COST",
+      "4": "CONTACT"
+    },
+    "hardwareAlt": "An audio interface, USB microphone, or wireless microphone connects to the Mac, with bilingual captions sent to a display over HDMI or screen casting."
+  },
+  "contact": {
+    "brand": "HEN LOCAL",
+    "product": "LIVE TRANSLATOR",
+    "back": "BACK TO PRODUCT",
+    "eyebrow": "GET A MEETING PLAN",
+    "title": "Tell us what you need for a local deployment plan.",
+    "intro": "Leave your contact details and briefly describe your event or use case. We’ll follow up by email to discuss a setup.",
+    "replyTitle": "HOW WE REPLY",
+    "replyCopy": "We’ll respond using the email entered in the form.",
+    "guideTitle": "A brief description is enough",
+    "guideCopy": "Still planning? Share what you know so far. We can work out device and venue details together later.",
+    "needsHint": "Share what you know; you don’t need to answer every question.",
+    "privacy": "Do not include confidential meeting content, attendee personal information, recordings, or transcripts. We only need high-level details to assess the setup.",
+    "fields": {
+      "name": "NAME",
+      "email": "EMAIL",
+      "organization": "COMPANY OR ORGANIZATION",
+      "message": "YOUR NEEDS",
+      "consent": "I agree that the HEN LOCAL team may use this information to respond to this inquiry."
+    },
+    "placeholders": {
+      "message": "Some prompts to help describe your needs:\n• When and where? How many attendees/rooms?\n• Which languages need translation?\n• What Mac do you have?\n• Microphone input and caption displays?"
+    },
+    "submit": "GET A RECOMMENDED SETUP",
+    "sending": "SENDING…",
+    "success": "Your details were submitted. We’ll follow up by email.",
+    "error": "The form could not be submitted. Please try again later.",
+    "messageTooLong": "Please shorten your description and submit it again."
+  },
+  "events": {
+    "0": {
+      "name": "AGIC Shenzhen AI Expo 2026",
+      "detail": "Shenzhen · Artificial intelligence exhibition",
+      "scale": "Major industry expo",
+      "imageAlt": "Official key visual for AGIC Shenzhen AI Expo 2026"
+    },
+    "1": {
+      "name": "GOSIM Shenzhen 2026",
+      "detail": "Shenzhen · Open-source conference",
+      "scale": "Large conference",
+      "imageAlt": "GOSIM Shenzhen 2026 promotional key visual with a blue and gold skyline"
+    },
+    "2": {
+      "name": "GOSIM Paris 2026",
+      "detail": "Paris · Open-source conference",
+      "scale": "Large conference",
+      "imageAlt": "GOSIM Paris 2026 promotional key visual with a green gradient and illustrated Paris landmarks"
+    },
+    "3": {
+      "name": "Community Over Code Asia 2026",
+      "detail": "Beijing · The Apache Software Foundation",
+      "scale": "Community conference",
+      "imageAlt": "Official Beijing skyline key visual for Community Over Code Asia 2026"
+    },
+    "4": {
+      "name": "RustChinaConf 2026",
+      "detail": "Shenzhen · Rust developer conference",
+      "scale": "Developer conference",
+      "imageAlt": "Official RustChinaConf 2026 Shenzhen skyline and crab mascot key visual"
+    }
+  },
+  "seo": {
+    "homeTitle": "HEN LOCAL Live Translator — On your own Mac",
+    "homeDescription": "Private live meeting translation on your Apple silicon Mac. Turn audio into bilingual captions and translated speech without uploads. Core translation works offline once models are installed.",
+    "contactTitle": "Contact — HEN LOCAL Live Translator",
+    "contactDescription": "Tell us about your event, Mac, and languages to get a recommended setup for private, on-device live translation."
+  }
+}

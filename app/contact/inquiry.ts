@@ -1,4 +1,4 @@
-type Locale = "zh" | "en";
+import type { Locale } from "../../i18n/routing";
 
 export function createInquiryPayload(form: FormData, locale: Locale) {
   const field = (name: string) => String(form.get(name) ?? "").trim();

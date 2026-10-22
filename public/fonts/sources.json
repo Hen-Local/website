@@ -1,0 +1,46 @@
+[
+  {
+    "id": "inter",
+    "family": "Inter",
+    "original": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+    "css": "https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap",
+    "license": "https://raw.githubusercontent.com/google/fonts/main/ofl/inter/OFL.txt",
+    "bytes": 48432,
+    "weights": "100..900",
+    "file": "/fonts/preview/inter-latin-variable.woff2",
+    "localLicense": "/fonts/preview/inter-OFL.txt"
+  },
+  {
+    "id": "dm-sans",
+    "family": "DM Sans",
+    "original": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K6z9mXg.woff2",
+    "css": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@100..1000&display=swap",
+    "license": "https://raw.githubusercontent.com/google/fonts/main/ofl/dmsans/OFL.txt",
+    "bytes": 36980,
+    "weights": "100..1000",
+    "file": "/fonts/preview/dm-sans-latin-variable.woff2",
+    "localLicense": "/fonts/preview/dm-sans-OFL.txt"
+  },
+  {
+    "id": "manrope",
+    "family": "Manrope",
+    "original": "https://fonts.gstatic.com/s/manrope/v20/xn7gYHE41ni1AdIRggexSvfedN4.woff2",
+    "css": "https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap",
+    "license": "https://raw.githubusercontent.com/google/fonts/main/ofl/manrope/OFL.txt",
+    "bytes": 24576,
+    "weights": "200..800",
+    "file": "/fonts/manrope-latin-variable.woff2",
+    "localLicense": "/fonts/manrope-OFL.txt"
+  },
+  {
+    "id": "space-grotesk",
+    "family": "Space Grotesk",
+    "original": "https://fonts.gstatic.com/s/spacegrotesk/v22/V8mDoQDjQSkFtoMM3T6r8E7mPbF4C_k3HqU.woff2",
+    "css": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap",
+    "license": "https://raw.githubusercontent.com/google/fonts/main/ofl/spacegrotesk/OFL.txt",
+    "bytes": 22320,
+    "weights": "300..700",
+    "file": "/fonts/preview/space-grotesk-latin-variable.woff2",
+    "localLicense": "/fonts/preview/space-grotesk-OFL.txt"
+  }
+]

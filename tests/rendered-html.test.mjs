@@ -4,7 +4,7 @@ import test from "node:test";
 import { runInNewContext } from "node:vm";
 
 test("exports the 很 Local landing page", async () => {
-  const html = await readFile(new URL("../dist/client/index.html", import.meta.url), "utf8");
+  const html = await readFile(new URL("../dist/client/zh/index.html", import.meta.url), "utf8");
 
   assert.match(html, /很 Local 实时翻译/);
   assert.match(html, /很 Local/);
@@ -31,7 +31,7 @@ test("exports the 很 Local landing page", async () => {
   assert.match(html, /越不该被按分钟收费/);
   assert.match(html, /¥4,080 \/ 100 小时起/);
   assert.match(html, /工作坊与培训/);
-  assert.match(html, /href="\/contact\/?\?lang=zh"/);
+  assert.match(html, /href="\/zh\/contact\/"/);
   assert.doesNotMatch(html, /悬停即可查看|HOVER TO READ|<sup>品牌<\/sup>/);
   assert.doesNotMatch(html, /商业版本|商业授权/);
   assert.doesNotMatch(html, /GET THE BETA|DOWNLOAD FOR MAC|VIEW BETA RELEASES|github\.com\/Hen-Local\/Hen-Local-Translator\/releases/i);
@@ -40,8 +40,8 @@ test("exports the 很 Local landing page", async () => {
 });
 
 test("exports the meeting inquiry form", async () => {
-  const html = await readFile(new URL("../dist/client/contact/index.html", import.meta.url), "utf8");
-  const source = await readFile(new URL("../app/contact/page.tsx", import.meta.url), "utf8");
+  const html = await readFile(new URL("../dist/client/zh/contact/index.html", import.meta.url), "utf8");
+  const source = await readFile(new URL("../app/components/ContactPage.tsx", import.meta.url), "utf8");
 
   assert.match(html, /获取本地部署建议/);
   assert.match(html, /简单说说就好/);
@@ -55,7 +55,7 @@ test("exports the meeting inquiry form", async () => {
   assert.match(source, /"Content-Type": "application\/json"/);
   assert.match(source, /name="message"/);
   assert.doesNotMatch(source, /name="(?:device|event|meeting_scale|language_directions)"/);
-  assert.match(html, /href="\/?\?lang=zh"/);
+  assert.match(html, /href="\/zh\/"/);
   assert.doesNotMatch(html, /hzeng49@gmail\.com|mailto:/);
   assert.doesNotMatch(source, /formspree|fetch\("\/api\/inquiry"/i);
 });
@@ -67,7 +67,7 @@ test("includes the GitHub Pages custom-domain files", async () => {
 });
 
 test("keeps same-document history out of the static host's RSC navigation loop", async () => {
-  const html = await readFile(new URL("../dist/client/index.html", import.meta.url), "utf8");
+  const html = await readFile(new URL("../dist/client/zh/index.html", import.meta.url), "utf8");
   const match = html.match(/<script id="static-page-navigation">([\s\S]*?)<\/script>/);
   assert.ok(match, "the static export must initialize native anchor handling before hydration");
   assert.ok(match.index < html.indexOf("</head>"));
