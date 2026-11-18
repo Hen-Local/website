@@ -73,6 +73,8 @@ API responses so validation does not create fake production inquiries.
 After pushing, confirm the **Deploy website to GitHub Pages** workflow succeeds
 and verify the published contact page.
 
-## Desktop subscription download
+## Mac beta download
 
-Publish the signed and notarized metered DMG as an asset of a release in the public Hen-Local/website repository (or an approved public download host). The translator source repository is private, so its release assets need GitHub sign-in. Set the Pages build variable `MAC_DOWNLOAD_URL` to the public DMG asset URL. Rebuild the site after setting the variable. While unset, the homepage shows that the download is pending.
+Both homepages link to the survey at `/zh/contact/` or `/en/contact/`. The form shows the Mac download button only after the inquiry service confirms a saved response with HTTP 201 and a receipt ID. The button uses the public ModelScope installer in `app/data/mac-beta.json`. Update its URL and version together when replacing the beta. The public file link can be shared after submission.
+
+The Pages build verifies a small byte range of the installer without downloading the whole file. The paid release is tracked separately in [launch acceptance #48](https://github.com/Hen-Local/Hen-Local-Translator/issues/48).

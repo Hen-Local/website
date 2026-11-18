@@ -1,6 +1,15 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { createInquiryPayload } from "../app/contact/inquiry.ts";
+import { createInquiryPayload, hasSavedInquiry } from "../app/contact/inquiry.ts";
+
+test("unlocks the beta only for a saved survey receipt", async () => {
+  const receipt = { ok: true, id: "926c9e95-2eb4-45c7-8ce1-98898c554ffc" };
+  assert.equal(await hasSavedInquiry(Response.json(receipt, { status: 201 })), true);
+  for (const [status, data] of [[200, { ok: true }], [201, { ok: true }], [201, { ok: false }], [503, receipt]]) {
+    assert.equal(await hasSavedInquiry(Response.json(data, { status })), false);
+  }
+  await assert.rejects(hasSavedInquiry(new Response("invalid", { status: 201 })));
+});
 
 function inquiryForm(message = "2026 年深圳会议，需要中英双语字幕。") {
   const form = new FormData();

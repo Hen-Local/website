@@ -27,8 +27,8 @@ test("exports the matching desktop and mobile workflow artwork for each language
 
 test("exports both languages with localized content and SEO before hydration", async () => {
   for (const [locale, htmlLanguage, title, contactTitle] of [
-    ["zh", "zh-CN", "会议实时翻译", "获取本地部署建议"],
-    ["en", "en", "Live meeting translation", "local deployment plan"],
+    ["zh", "zh-CN", "会议实时翻译", "填写问卷，获取免费 Beta 版"],
+    ["en", "en", "Live meeting translation", "Take the survey to get the free Mac beta"],
   ]) {
     for (const page of ["", "contact/"]) {
       const path = `${locale}/${page}`;

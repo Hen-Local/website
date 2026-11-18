@@ -15,7 +15,7 @@ test("exports the 很 Local landing page", async () => {
   assert.match(html, /音频不上传/);
   assert.match(html, /语音同传/);
   assert.match(html, /蓝牙耳机/);
-  assert.match(html, /咨询方案/);
+  assert.match(html, /正式版即将上线/);
   assert.match(html, /国际论坛与发布会/);
   assert.match(html, /优势一 · 会议数据不出本机/);
   assert.match(html, /工作原理 · 使用现有 Mac/);
@@ -27,9 +27,6 @@ test("exports the 很 Local landing page", async () => {
   assert.ok(html.indexOf('id="how-it-works"') < html.indexOf('id="projects"'));
   assert.ok(html.indexOf('id="projects"') < html.indexOf('id="why-local"'));
   assert.ok(html.indexOf("工作原理 · 使用现有 Mac") < html.indexOf("产品能力 · 实时字幕与语音翻译"));
-  assert.ok(html.indexOf("产品能力 · 实时字幕与语音翻译") < html.indexOf("会议开得越多"));
-  assert.match(html, /越不该被按分钟收费/);
-  assert.match(html, /¥4,080 \/ 100 小时起/);
   assert.match(html, /工作坊与培训/);
   assert.match(html, /href="\/zh\/contact\/"/);
   assert.doesNotMatch(html, /悬停即可查看|HOVER TO READ|<sup>品牌<\/sup>/);
@@ -42,12 +39,12 @@ test("exports the meeting inquiry form", async () => {
   const html = await readFile(new URL("../dist/client/zh/contact/index.html", import.meta.url), "utf8");
   const source = await readFile(new URL("../app/components/ContactPage.tsx", import.meta.url), "utf8");
 
-  assert.match(html, /获取本地部署建议/);
+  assert.match(html, /填写问卷，获取免费 Beta 版/);
   assert.match(html, /简单说说就好/);
   assert.match(html, /需求描述/);
   assert.match(html, /现有 Mac 配置如何/);
   assert.match(html, /哪些语言之间的翻译/);
-  assert.match(html, /提交需求，获取方案/);
+  assert.match(html, /提交问卷，获取下载链接/);
   assert.match(source, /NEXT_PUBLIC_CONTACT_FORM_ENDPOINT/);
   assert.match(source, /https:\/\/forms\.pitun\.cc\/api\/inquiries/);
   assert.match(source, /JSON\.stringify\(payload\)/);
@@ -79,7 +76,7 @@ test("keeps same-document history out of the static host's RSC navigation loop",
   window.addEventListener("popstate", () => { routerRequests += 1; });
 
   // Native anchors and browser back/forward must not refetch the current page.
-  for (const hash of ["#how-it-works", "#projects", "#cost", "#projects", ""]) {
+  for (const hash of ["#how-it-works", "#projects", "#faq", "#projects", ""]) {
     location.hash = hash;
     window.dispatchEvent(new Event("popstate"));
     assert.equal(routerRequests, 0);
@@ -101,16 +98,23 @@ test("keeps same-document history out of the static host's RSC navigation loop",
 });
 
 
-test("both homepages explain the shared trial and link to the configured Mac download", async () => {
+test("both homepages send visitors to the survey and keep installer links off the public pages", async () => {
   for (const locale of ["zh", "en"]) {
-    const html = await readFile(new URL(`../dist/client/${locale}/index.html`, import.meta.url), "utf8");
-    assert.match(html, /120/);
-    assert.match(html, /US\$20/);
-    const hero = html.split('class="hero-actions"')[1].split("</div>")[0];
-    if (process.env.NEXT_PUBLIC_MAC_DOWNLOAD_URL) {
-      assert.ok(hero.includes(`href="${process.env.NEXT_PUBLIC_MAC_DOWNLOAD_URL}"`));
-    } else {
-      assert.match(hero, /下载准备中|Download coming soon/);
+    const page = (path) => readFile(new URL(`../dist/client/${locale}/${path}index.html`, import.meta.url), "utf8");
+    const home = await page("");
+    const form = await page("contact/");
+    const path = `href="/${locale}/contact/"`;
+    for (const section of ["header", 'section class="hero"', 'section class="access-section"', "footer"]) {
+      const start = home.indexOf(`<${section}`);
+      assert.notEqual(start, -1);
+      const end = home.indexOf(`</${section.split(" ")[0]}>`, start);
+      assert.ok(home.slice(start, end).includes(path), `${section} needs the localized survey link`);
+    }
+    assert.match(home, locale === "zh" ? /正式版即将上线/ : /Launching soon/);
+    assert.match(home, locale === "zh" ? /提交后即可免费下载/ : /survey to download the free Mac beta/);
+    assert.match(form, locale === "zh" ? /提交后，下载链接会直接显示在本页/ : /download link will appear here as soon as you submit/);
+    for (const html of [home, form]) {
+      assert.doesNotMatch(html, /modelscope\.cn|href="[^"]*\.dmg|Stripe|US\$20|¥|特惠价|成本方式|询价|订阅版下载准备中|special monthly offer|120 free minutes/i);
     }
   }
 });
