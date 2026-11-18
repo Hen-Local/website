@@ -36,7 +36,18 @@ jobs:
       - name: Build and test static site
         run: npm test
         env:
+          NEXT_PUBLIC_MAC_DOWNLOAD_URL: ${{ vars.MAC_DOWNLOAD_URL }}
           NEXT_PUBLIC_CONTACT_FORM_ENDPOINT: ${{ vars.CONTACT_FORM_ENDPOINT }}
+
+      - name: Verify the public installer is reachable without signing in
+        if: vars.MAC_DOWNLOAD_URL != ''
+        env:
+          MAC_DOWNLOAD_URL: ${{ vars.MAC_DOWNLOAD_URL }}
+        run: |
+          case "$MAC_DOWNLOAD_URL" in https://*) ;; *) exit 1 ;; esac
+          content_type=$(curl --proto '=https' --proto-redir '=https' --fail --silent --show-error \
+            --location --head --output /dev/null --write-out '%{content_type}' "$MAC_DOWNLOAD_URL")
+          case "$content_type" in application/octet-stream*|application/x-apple-diskimage*|application/x-diskcopy*) ;; *) echo "Expected a public disk image, got $content_type"; exit 1 ;; esac
 
       - name: Configure Pages
         uses: actions/configure-pages@v6

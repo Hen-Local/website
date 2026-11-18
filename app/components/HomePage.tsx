@@ -22,6 +22,7 @@ export default function HomePage() {
   const eventT = useTranslations("events");
   const homeMessages = useMessages().home;
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+  const downloadUrl = process.env.NEXT_PUBLIC_MAC_DOWNLOAD_URL;
   const contactHref = localizedHref(locale, "contact");
   function messageKeys<Key extends "nav" | "localValues" | "useCases" | "costCards" | "faqs">(key: Key) {
     return Object.keys(homeMessages[key]) as Array<keyof Messages["home"][Key] & string>;
@@ -55,10 +56,12 @@ export default function HomePage() {
           <h1 className="hero-title" id="product-title">{t("hero.0")}<br /><em>{t("hero.1")}</em></h1>
           <p className="hero-lede">{t("lede")}</p>
           <div className="hero-actions">
-            <a className="button button-primary" href={contactHref}>{t("contactLink")} <span aria-hidden="true">↗</span></a>
+            {downloadUrl
+              ? <a className="button button-primary" href={downloadUrl}>{t("downloadMac")} <span aria-hidden="true">↓</span></a>
+              : <a className="button button-primary" href="#cost">{t("downloadPending")}</a>}
             <a className="button button-light" href="#how-it-works">{t("seeHow")} <span aria-hidden="true">↓</span></a>
           </div>
-          <p className="requirements">{t("requirements")}</p>
+          <p className="requirements">{t("requirements")} · {t("trialTerms")}</p>
         </div>
 
         <div className="product-stage" aria-label={t("previewLabel")}>
