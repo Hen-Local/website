@@ -14,7 +14,7 @@ import LanguageSwitcher from "./LanguageSwitcher";
 
 const sceneIllustrations = ["scene-keynote", "scene-workshop", "scene-forum", "scene-hybrid"] as const;
 
-const navHrefs = ["#how-it-works", "#projects", "#why-local", "#use-cases", "#cost"] as const;
+const navHrefs = ["#how-it-works", "#projects", "#why-local", "#use-cases"] as const;
 
 export default function HomePage() {
   const locale = useLocale();
@@ -22,15 +22,13 @@ export default function HomePage() {
   const eventT = useTranslations("events");
   const homeMessages = useMessages().home;
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
-  const downloadUrl = process.env.NEXT_PUBLIC_MAC_DOWNLOAD_URL;
   const contactHref = localizedHref(locale, "contact");
-  function messageKeys<Key extends "nav" | "localValues" | "useCases" | "costCards" | "faqs">(key: Key) {
+  function messageKeys<Key extends "nav" | "localValues" | "useCases" | "faqs">(key: Key) {
     return Object.keys(homeMessages[key]) as Array<keyof Messages["home"][Key] & string>;
   }
   const nav = messageKeys("nav").map((index) => t(`nav.${index}`));
   const localValues = messageKeys("localValues").map((index) => [t(`localValues.${index}.0`), t(`localValues.${index}.1`)] as const);
   const useCases = messageKeys("useCases").map((index) => [t(`useCases.${index}.0`), t(`useCases.${index}.1`), t(`useCases.${index}.2`)] as const);
-  const costCards = messageKeys("costCards").map((index) => [t(`costCards.${index}.0`), t(`costCards.${index}.1`), t(`costCards.${index}.2`), t(`costCards.${index}.3`)] as const);
   const faqs = messageKeys("faqs").map((index) => [t(`faqs.${index}.0`), t(`faqs.${index}.1`)] as const);
   const projects = events.map((event) => ({ ...event, name: eventT(`${event.id}.name`), detail: eventT(`${event.id}.detail`), scale: eventT(`${event.id}.scale`), imageAlt: eventT(`${event.id}.imageAlt`) }));
 
@@ -55,13 +53,12 @@ export default function HomePage() {
           <div className="eyebrow-row"><span className="pill"><i /> {t("edition")}</span></div>
           <h1 className="hero-title" id="product-title">{t("hero.0")}<br /><em>{t("hero.1")}</em></h1>
           <p className="hero-lede">{t("lede")}</p>
+          <p className="beta-invite">{t("betaInvite")}</p>
           <div className="hero-actions">
-            {downloadUrl
-              ? <a className="button button-primary" href={downloadUrl}>{t("downloadMac")} <span aria-hidden="true">↓</span></a>
-              : <a className="button button-primary" href="#cost">{t("downloadPending")}</a>}
+            <a className="button button-primary" href={contactHref}>{t("surveyCta")}</a>
             <a className="button button-light" href="#how-it-works">{t("seeHow")} <span aria-hidden="true">↓</span></a>
           </div>
-          <p className="requirements">{t("requirements")} · {t("trialTerms")}</p>
+          <p className="requirements">{t("requirements")}</p>
         </div>
 
         <div className="product-stage" aria-label={t("previewLabel")}>
@@ -116,15 +113,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="cost-section" id="cost">
-        <div className="cost-heading"><span className="story-label">{t("costTag")}</span><div><h2>{t("costTitle.0")}<br />{t("costTitle.1")}</h2><p>{t("costIntro")}</p></div><SpotIllustration name="cost-multiple-meetings" className="cost-illustration" /></div>
-        <div className="cost-grid">{costCards.map(([name, price, unit, copy], index) => <article className={index === 0 ? "cost-local" : ""} key={name}><span>0{index + 1}</span><h3>{name}</h3><strong>{price}</strong><b>{unit}</b><p>{copy}</p></article>)}</div>
-        <div className="cost-evidence">
-          <div><strong>{t("costSourceLabel")}</strong><p>{t("costDisclaimer")}</p></div>
-          <div className="source-links"><a href="https://tongchuan.iflyrec.com/recharge.html" target="_blank" rel="noreferrer">讯飞同传 ↗</a><a href="https://maestra.ai/pricing?type=real-time" target="_blank" rel="noreferrer">Maestra ↗</a></div>
-        </div>
-      </section>
-
       <section className="faq-section" id="faq">
         <div className="faq-heading"><span className="story-label">{t("faqTag")}</span><h2>{t("faqTitle")}</h2></div>
         <div className="faq-list">{faqs.map(([question, answer], index) => <article className={activeFaq === index ? "is-active" : ""} key={question}>
@@ -139,13 +127,13 @@ export default function HomePage() {
       <section className="access-section">
         <div className="access-mark"><img src="/logo-mark.png" width="1024" height="1024" alt="" /></div>
         <div><span className="section-tag">{t("commercialTag")}</span><h2>{t("commercialTitle.0")}<br />{t("commercialTitle.1")}</h2><p>{t("commercialCopy")}</p></div>
-        <div className="access-actions"><span className="commercial-note">{t("commercialNote")}</span><a className="button button-accent" href={contactHref}>{t("contactCta")} <span aria-hidden="true">↗</span></a></div>
+        <div className="access-actions"><a className="button button-accent" href={contactHref}>{t("surveyCta")}</a></div>
       </section>
 
       <footer>
         <a className="brand footer-brand" href="#top"><span className="brand-mark"><img src="/logo-mark.png" width="1024" height="1024" alt="" /></span><span className="brand-copy"><strong>{t("brandName")}</strong><small>{t("productName")}</small></span></a>
         <p>{t("footerLine")}</p>
-        <div><a href="#why-local">{t("footerLinks.0")}</a><a href="#how-it-works">{t("footerLinks.1")}</a><a href="#use-cases">{t("footerLinks.2")}</a><a href="#cost">{t("footerLinks.3")}</a><a href={contactHref}>{t("footerLinks.4")}</a></div>
+        <div><a href="#why-local">{t("footerLinks.0")}</a><a href="#how-it-works">{t("footerLinks.1")}</a><a href="#use-cases">{t("footerLinks.2")}</a><a href={contactHref}>{t("footerLinks.3")}</a></div>
         <small>© {new Date().getFullYear()} {t("brandName")}</small>
       </footer>
     </main>

@@ -1,5 +1,12 @@
 import type { Locale } from "../../i18n/routing";
 
+export async function hasSavedInquiry(response: Response): Promise<boolean> {
+  // The form service returns 200 without an ID for submissions caught by its spam filter.
+  if (response.status !== 201) return false;
+  const receipt = await response.json();
+  return receipt?.ok === true && typeof receipt.id === "string" && receipt.id.trim().length > 0;
+}
+
 export function createInquiryPayload(form: FormData, locale: Locale) {
   const field = (name: string) => String(form.get(name) ?? "").trim();
   const message = field("message");
