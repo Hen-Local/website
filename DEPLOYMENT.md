@@ -72,3 +72,7 @@ The health endpoint should return `{"ok":true}`. Test form behavior with mocked
 API responses so validation does not create fake production inquiries.
 After pushing, confirm the **Deploy website to GitHub Pages** workflow succeeds
 and verify the published contact page.
+
+## Desktop subscription download
+
+Publish the signed and notarized metered DMG as an asset of a release in the public Hen-Local/website repository (or an approved public download host). The translator source repository is private, so its release assets need GitHub sign-in. Set the Pages build variable `MAC_DOWNLOAD_URL` to the public DMG asset URL. Rebuild the site after setting the variable. While unset, the homepage shows that the download is pending.

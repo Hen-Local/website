@@ -134,7 +134,7 @@
         "0": "HEN LOCAL",
         "1": "ON-DEVICE PROCESSING",
         "2": "No cloud usage fee tied to meeting length",
-        "3": "Software licensing, deployment support, and event services are quoted for the actual meeting."
+        "3": "Special monthly offer: CNY 100 in mainland China or US$20 overseas. Pay monthly by card through Stripe for up to two Macs. Contact us for deployment and event services."
       },
       "1": {
         "0": "iFLYREC Enterprise",
@@ -183,7 +183,7 @@
     "faqs": {
       "0": {
         "0": "Does it really work without an internet connection?",
-        "1": "Once the models are installed, core speech recognition and translation work offline. Model downloads, software updates, or license setup may require a brief connection."
+        "1": "The trial needs internet access to sync the remaining allowance. Meeting content stays on your Mac. Subscribers can download models and refresh their license before an event for up to seven days offline."
       },
       "1": {
         "0": "Which Macs can run it?",
@@ -218,7 +218,10 @@
       "3": "COST",
       "4": "CONTACT"
     },
-    "hardwareAlt": "An audio interface, USB microphone, or wireless microphone connects to the Mac, with bilingual captions sent to a display over HDMI or screen casting."
+    "hardwareAlt": "An audio interface, USB microphone, or wireless microphone connects to the Mac, with bilingual captions sent to a display over HDMI or screen casting.",
+    "downloadMac": "Download for Mac · Try free",
+    "downloadPending": "Download coming soon · See special offer",
+    "trialTerms": "Download first, then sign in by email. Two Macs share 120 free minutes of online trial time. The timer pauses when translation stops."
   },
   "contact": {
     "brand": "HEN LOCAL",

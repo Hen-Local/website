@@ -34,7 +34,6 @@ test("exports the 很 Local landing page", async () => {
   assert.match(html, /href="\/zh\/contact\/"/);
   assert.doesNotMatch(html, /悬停即可查看|HOVER TO READ|<sup>品牌<\/sup>/);
   assert.doesNotMatch(html, /商业版本|商业授权/);
-  assert.doesNotMatch(html, /GET THE BETA|DOWNLOAD FOR MAC|VIEW BETA RELEASES|github\.com\/Hen-Local\/Hen-Local-Translator\/releases/i);
   assert.match(html, /henlocal\.com/);
   assert.doesNotMatch(html, /codex-preview|SkeletonPreview|react-loading-skeleton/i);
 });
@@ -99,4 +98,19 @@ test("keeps same-document history out of the static host's RSC navigation loop",
   history.scrollRestoration = "manual";
   window.dispatchEvent(new Event("pageshow"));
   assert.equal(history.scrollRestoration, "auto");
+});
+
+
+test("both homepages explain the shared trial and link to the configured Mac download", async () => {
+  for (const locale of ["zh", "en"]) {
+    const html = await readFile(new URL(`../dist/client/${locale}/index.html`, import.meta.url), "utf8");
+    assert.match(html, /120/);
+    assert.match(html, /US\$20/);
+    const hero = html.split('class="hero-actions"')[1].split("</div>")[0];
+    if (process.env.NEXT_PUBLIC_MAC_DOWNLOAD_URL) {
+      assert.ok(hero.includes(`href="${process.env.NEXT_PUBLIC_MAC_DOWNLOAD_URL}"`));
+    } else {
+      assert.match(hero, /下载准备中|Download coming soon/);
+    }
+  }
 });
