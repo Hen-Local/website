@@ -151,7 +151,7 @@ export default function ProjectCarousel({ projects }: {
   return (
     <section className="projects-section" id="projects" aria-labelledby="projects-title" ref={sectionRef}>
       <div className="projects-heading">
-        <div><span className="story-label">{t("projectsTag")}</span><h2 id="projects-title">{t("projectsTitle")}</h2><p>{t("projectsIntro")}</p></div>
+        <h2 id="projects-title">{t("nav.1")}</h2>
         <div className="project-navigation">
           <span className="project-position" aria-hidden="true"><b>{String(activeProject + 1).padStart(2, "0")}</b><span>/ {String(projects.length).padStart(2, "0")}</span></span>
           <div className="project-controls">

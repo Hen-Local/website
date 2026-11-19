@@ -16,6 +16,7 @@ function subscribeNarrow(callback: () => void) {
 
 export default function FontPreview() {
   const t = useTranslations("home");
+  const common = useTranslations("common");
   const query = useFontPreviewQuery();
   const font = getPreviewFont(query.get("font"));
   const compare = query.get("view") === "compare";
@@ -79,7 +80,7 @@ export default function FontPreview() {
     {compare ? <section className="font-study-comparison" aria-label="Font comparison at equal sizes">
       {fontOptions.slice(0, 4).map((option, index) => <article className="font-study-specimen" key={option.id}>
         <div className="font-study-specimen-heading"><span>0{index + 1} / {option.name}</span><button type="button" onClick={() => updateFontPreviewQuery({ font: option.id, view: "page" })}>Try on page ↗</button></div>
-        <div className="font-study-specimen-copy" style={{ fontFamily: option.family }}><span>{t("edition")}</span><h2>{t("hero.0")}<br /><em>{t("hero.1")}</em></h2><p>{t("lede")}</p><div className="font-study-specimen-button">{t("contactLink")} <span>↗</span></div><h3>{t("howTitle")}</h3><p className="font-study-glyphs">Aa Bb Gg Rr &amp; 0123456789</p></div>
+        <div className="font-study-specimen-copy" style={{ fontFamily: option.family }}><span>{t("edition")}</span><h2>{t("hero.0")}<br /><em>{t("hero.1")}</em></h2><p>{t("lede")}</p><div className="font-study-specimen-button">{common("downloadBeta")} <span>↗</span></div><h3>{t("nav.0")}</h3><p className="font-study-glyphs">Aa Bb Gg Rr &amp; 0123456789</p></div>
       </article>)}
     </section> : <section className="font-study-live" aria-label="Live homepage font preview">
       <div className="font-study-live-caption"><div><strong>{font.name}</strong><span>{font.description}</span></div><span className="font-study-ready" role="status">{loadError ? "Font could not load. Refresh to retry." : appliedFont === font.id ? `${nativeWidth} px · Ready` : "Loading preview…"}</span></div>

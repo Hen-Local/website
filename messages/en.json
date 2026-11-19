@@ -5,245 +5,155 @@
       "zh": "中文",
       "en": "English"
     },
-    "currentLanguage": "EN"
+    "currentLanguage": "English",
+    "downloadBeta": "Download beta",
+    "surveyNote": "Submit the survey to download the free Mac beta.",
+    "macRequirements": "Apple silicon Mac · macOS 14 or later",
+    "brandName": "HEN LOCAL",
+    "productName": "Live Translator"
   },
   "home": {
-    "brandName": "HEN LOCAL",
-    "productName": "LIVE TRANSLATOR",
     "previewLabel": "HEN LOCAL LIVE TRANSLATOR interface preview",
     "homeLabel": "HEN LOCAL home",
     "navLabel": "Primary navigation",
     "nav": {
-      "0": "HOW IT WORKS",
-      "1": "EVENTS",
-      "2": "PRIVACY",
-      "3": "USE CASES"
+      "0": "How it works",
+      "1": "Events",
+      "2": "Privacy",
+      "3": "Use cases"
     },
-    "contactLink": "Get the beta",
     "edition": "Launching soon",
-    "platform": "YOUR MAC · CORE TRANSLATION WORKS OFFLINE",
     "hero": {
-      "0": "Live meeting translation,",
-      "1": "on your own Mac."
+      "0": "Live meeting translation",
+      "1": "on your Mac."
     },
-    "lede": "Turn meeting audio into bilingual captions and translated speech on your Apple silicon Mac. No audio uploads. Works offline once models are ready.",
-    "seeHow": "HOW IT WORKS",
-    "accessNote": "Processing and default data storage stay on your computer.",
-    "requirements": "macOS 14+ · Apple silicon Mac",
-    "projectsTag": "IN THE FIELD · ON-DEVICE TRANSLATION",
-    "projectsTitle": "Event deployments",
-    "projectsIntro": "From community meetups to major exhibitions.",
-    "projectGalleryLabel": "Event deployments, scroll horizontally to explore",
+    "lede": "Get bilingual captions and translated speech as people speak. Audio stays on your Mac.",
+    "projectGalleryLabel": "Events",
     "projectPrevious": "Previous events",
     "projectNext": "More events",
     "projectWebsite": "Visit official event website",
     "projectPause": "Pause automatic scrolling",
     "projectPlay": "Resume automatic scrolling",
-    "projectScaleLabel": "Event scale",
+    "projectScaleLabel": "Event size",
     "app": {
-      "ready": "LOCAL AI READY",
-      "route": "LANGUAGE + AUDIO",
-      "source": "SOURCE",
-      "target": "TARGET",
+      "ready": "Ready",
+      "route": "Translation languages",
+      "source": "Source",
+      "target": "Translation",
       "sourceValue": "English",
-      "targetValue": "中文",
-      "input": "MEETING AUDIO · CAPTIONS · SPOKEN INTERPRETATION",
-      "start": "START MEETING",
-      "live": "LIVE",
-      "sampleSource": "Local translation is private and safe.",
-      "sampleTarget": "本地翻译隐私又安全。"
+      "targetValue": "Chinese",
+      "input": "Meeting audio · Bilingual captions · Translated speech",
+      "start": "Start translation",
+      "live": "Live captions",
+      "sampleSource": "The audio stays on this Mac.",
+      "sampleTarget": "音频保留在这台 Mac 上。"
     },
-    "ticker": {
-      "0": "MEETING INTERPRETATION",
-      "1": "LIVE CAPTIONS",
-      "2": "SPOKEN OUTPUT",
-      "3": "BLUETOOTH AUDIO",
-      "4": "ON-DEVICE",
-      "5": "PRIVATE",
-      "6": "SYSTEM AUDIO",
-      "7": "REAL-TIME"
-    },
-    "useCasesTag": "PRODUCT CAPABILITY · LIVE CAPTIONS + INTERPRETATION",
-    "useCasesTitle": {
-      "0": "The speaker keeps speaking.",
-      "1": "Everyone else keeps up."
-    },
-    "useCasesIntro": "Speakers keep speaking. Attendees follow along through bilingual captions, Bluetooth headphones, or venue audio.",
     "useCases": {
       "0": {
-        "0": "Keynotes + presentations",
-        "1": "Show bilingual captions on the main screen and route translated speech to headphones or venue audio.",
-        "2": "MAIN STAGE · ONE-TO-MANY"
+        "0": "Presentations",
+        "1": "Show bilingual captions on the main screen and play translated speech through headphones or venue speakers."
       },
       "1": {
-        "0": "Workshops + training",
-        "1": "Help participants follow longer, terminology-heavy, interactive sessions with captions and spoken output together.",
-        "2": "LONG FORM · INTERACTIVE"
+        "0": "Workshops and training",
+        "1": "Read technical terms in the captions and follow discussions with translated audio."
       },
       "2": {
-        "0": "Conferences + launches",
-        "1": "Give multilingual audiences one clear way to follow the event and retain bilingual records for follow-up.",
-        "2": "LARGE EVENTS · REVIEWABLE"
+        "0": "Forums and launches",
+        "1": "Show captions to multilingual audiences and save a bilingual transcript for later."
       },
       "3": {
-        "0": "Global company meetings",
-        "1": "Connect room microphones or Mac system audio so in-person and remote attendees can read and hear the translation.",
-        "2": "MEETING ROOM · HYBRID"
+        "0": "Hybrid meetings",
+        "1": "Use a room microphone or Mac system audio to provide captions and translated speech to people in the room and online."
       }
     },
-    "fitTitle": "A STRONG FIT",
-    "fitCopy": "For talks, training, and recurring meetings where privacy matters.",
-    "notFitTitle": "KEEP A HUMAN INTERPRETER OR REVIEWER",
-    "notFitCopy": "Diplomatic, legal, or medical events; heavy cross-talk and noise; or meetings requiring professional interpreter accountability.",
-    "whyTag": "ADVANTAGE 01 · MEETING DATA STAYS LOCAL",
-    "privacyKicker": "ON-DEVICE PROCESSING WITH A CLEAR DATA BOUNDARY",
-    "privacyTitle": {
-      "0": "No audio uploads.",
-      "1": "No cloud transcript."
-    },
-    "privacyCopy": "Recognition, translation, and speech generation run on your Mac. Processing and default data storage stay on your computer.",
+    "privacyCopy": "Your Mac handles speech recognition, translation, and spoken output.",
     "localValues": {
       "0": {
-        "0": "Local by default",
-        "1": "Audio, transcripts, translation, and generated speech do not need to be uploaded."
+        "0": "Local storage",
+        "1": "Audio, transcripts, and translations stay on your Mac by default."
       },
       "1": {
-        "0": "Works offline",
-        "1": "Once models are ready, core translation does not depend on venue internet."
+        "0": "Offline translation",
+        "1": "Once the models are ready, you can translate offline."
       },
       "2": {
-        "0": "Export after the meeting",
-        "1": "Save a bilingual transcript on your Mac to review or share later."
+        "0": "Bilingual transcripts",
+        "1": "Export a bilingual transcript after the meeting to review or share."
       }
     },
-    "orbit": {
-      "0": "AUDIO",
-      "1": "TRANSCRIPT",
-      "2": "TRANSLATION"
-    },
-    "stays": "LOCAL BY DEFAULT",
-    "featuresTag": "BUILT TO DISAPPEAR",
-    "featuresTitle": {
-      "0": "Keep everyone",
-      "1": "with the meeting."
-    },
-    "featuresIntro": "A Mac app designed around multilingual meetings—from room audio to captions and spoken interpretation, without sending the meeting to the cloud.",
-    "features": {
-      "0": {
-        "0": "Live meeting captions",
-        "1": "Capture room microphones or system audio and show source and translated text while the meeting is happening."
-      },
-      "1": {
-        "0": "Spoken interpretation",
-        "1": "Play translated speech through Bluetooth headphones, system speakers, or a selected audio output device."
-      },
-      "2": {
-        "0": "Private on-device processing",
-        "1": "Recognition, translation, and speech generation run locally on an Apple silicon Mac."
-      },
-      "3": {
-        "0": "Meeting records",
-        "1": "Export or automatically save bilingual transcripts for follow-up without uploading the recording to the cloud."
-      }
-    },
-    "howTag": "HOW IT WORKS · ON YOUR MAC",
-    "howTitle": "From a spoken word to a shared understanding.",
-    "diagramLabel": "How it works: a microphone captures the speaker, the Mac recognizes and translates locally, and a TV displays bilingual captions.",
-    "faqTag": "FAQ",
-    "faqTitle": "Common questions",
+    "diagramLabel": "A microphone captures speech, the Mac recognizes and translates it, and a screen displays bilingual captions.",
+    "faqTitle": "Frequently asked questions",
     "faqs": {
       "0": {
-        "0": "Does it really work without an internet connection?",
-        "1": "You need an internet connection to download the installer. Once the models are ready, your Mac can recognize speech, translate it, and display bilingual captions offline."
+        "0": "Do I need internet access?",
+        "1": "You need internet access for the download. Once the models are ready, recognition, translation, and captions work offline."
       },
       "1": {
-        "0": "Which Macs can run it?",
-        "1": "You need an Apple silicon Mac running macOS 14 or later. In our tests, a 2021 MacBook Pro with an M1 Pro chip and 16GB of memory runs smoothly."
+        "0": "Which Macs are supported?",
+        "1": "You need Apple silicon and macOS 14 or later. It ran smoothly on our 2021 MacBook Pro with an M1 Pro and 16 GB of memory."
       },
       "2": {
-        "0": "Are meeting audio and transcripts saved or uploaded?",
-        "1": "Processing and default data storage stay on the Mac. Meeting audio is not uploaded to complete translation; shareable files are created only when you choose to export or share them."
+        "0": "Where are audio and transcripts stored?",
+        "1": "Audio is processed on your Mac, and transcripts are stored locally by default. You can export or share the records yourself."
       },
       "3": {
-        "0": "What input and output hardware do I need?",
-        "1": "For audio input, we have tested microphones connected through an audio interface, USB microphones, and DJI wireless microphones; all work well. Bilingual captions can be displayed on a TV, projector, or venue screen over HDMI or screen casting."
+        "0": "Which devices can I connect?",
+        "1": "We tested USB microphones, microphones connected through an audio interface, and DJI wireless microphones. Use HDMI or screen casting to show captions on a TV, projector, or venue screen."
       },
       "4": {
-        "0": "Does it replace a professional interpreter?",
-        "1": "Not in every setting. Structured business meetings and training are good candidates for assessment; high-risk or accountability-heavy events should retain a professional interpreter or human review."
+        "0": "When should I use a professional interpreter?",
+        "1": "You can try it in routine meetings and training. Use a professional interpreter or human review for high-stakes events or when professional accountability is required."
       }
     },
-    "commercialTag": "MAC BETA",
-    "commercialTitle": {
-      "0": "Try it on",
-      "1": "your Mac."
-    },
-    "commercialCopy": "Tell us where you would use live translation. Once you submit the survey, the download link appears on the same page.",
-    "footerLine": "NO UPLOADS. OFFLINE CORE TRANSLATION ON YOUR EXISTING MAC.",
-    "footerLinks": {
-      "0": "PRIVACY",
-      "1": "HOW IT WORKS",
-      "2": "USE CASES",
-      "3": "BETA SURVEY"
-    },
-    "hardwareAlt": "An audio interface, USB microphone, or wireless microphone connects to the Mac, with bilingual captions sent to a display over HDMI or screen casting.",
-    "betaInvite": "Want to try it now? Take a short survey to download the free Mac beta.",
-    "surveyCta": "Take the beta survey"
+    "commercialTitle": "Try the free Mac beta",
+    "hardwareAlt": "An audio interface, USB microphone, or wireless microphone connects to the Mac, with bilingual captions sent to a display over HDMI or screen casting."
   },
   "contact": {
-    "brand": "HEN LOCAL",
-    "product": "LIVE TRANSLATOR",
-    "back": "BACK TO PRODUCT",
-    "eyebrow": "MAC BETA SURVEY",
-    "title": "Take the survey to get the free Mac beta",
-    "intro": "Tell us where you plan to use HEN LOCAL and which languages you need. The download link will appear here as soon as you submit.",
-    "replyTitle": "SYSTEM REQUIREMENTS",
-    "replyCopy": "An Apple silicon Mac running macOS 14 or later.",
-    "guideTitle": "A brief description is enough",
-    "guideCopy": "A meeting, a class, or something you do on your own. Describe one situation where you would like to try live translation.",
-    "needsHint": "Share what you know; you don’t need to answer every question.",
-    "privacy": "Please keep your answers general. Leave out confidential details, other people’s personal information, recordings, and transcripts.",
+    "back": "Back to home",
+    "title": "Beta survey",
+    "replyTitle": "System requirements",
+    "privacy": "Please leave out confidential details, other people’s information, recordings, and transcripts.",
     "fields": {
-      "name": "NAME",
-      "email": "EMAIL",
-      "organization": "Company or organization (enter “Individual” for personal use)",
-      "message": "YOUR NEEDS",
-      "consent": "I agree that the HEN LOCAL team may collect my answers to understand how I plan to use the beta and contact me about my feedback."
+      "name": "Name",
+      "email": "Email",
+      "organization": "Organization",
+      "message": "Use case",
+      "consent": "I agree that HEN LOCAL may collect my answers to understand my needs and contact me about my feedback."
     },
     "placeholders": {
-      "message": "Some prompts to help describe your needs:\n• When and where? How many attendees/rooms?\n• Which languages need translation?\n• What Mac do you have?\n• Microphone input and caption displays?"
+      "message": "For example, I’d like English and Chinese captions for a workshop."
     },
-    "submit": "Submit survey and get download link",
-    "sending": "SENDING…",
-    "success": "Thanks for completing the survey! Your Mac beta is ready to download.",
-    "error": "The form could not be submitted. Please try again later.",
-    "messageTooLong": "Please shorten your description and submit it again.",
-    "downloadBeta": "Download the Mac beta",
-    "installerNote": "Offline installer · about 6.3 GB"
+    "submit": "Submit survey",
+    "sending": "Submitting…",
+    "success": "Survey submitted",
+    "error": "Couldn’t submit the survey. Please try again.",
+    "messageTooLong": "Please shorten your description and try again.",
+    "installerNote": "Offline installer · about 6.3 GB",
+    "organizationHint": "For personal use, enter “Individual”."
   },
   "events": {
     "0": {
       "name": "AGIC Shenzhen AI Expo 2026",
       "detail": "Shenzhen · Artificial intelligence exhibition",
-      "scale": "Major industry expo",
+      "scale": "Around 100,000 attendees",
       "imageAlt": "Official key visual for AGIC Shenzhen AI Expo 2026"
     },
     "1": {
       "name": "GOSIM Shenzhen 2026",
       "detail": "Shenzhen · Open-source conference",
-      "scale": "Large conference",
+      "scale": "Around 1,000 attendees",
       "imageAlt": "GOSIM Shenzhen 2026 promotional key visual with a blue and gold skyline"
     },
     "2": {
       "name": "GOSIM Paris 2026",
       "detail": "Paris · Open-source conference",
-      "scale": "Large conference",
+      "scale": "Around 1,000 attendees",
       "imageAlt": "GOSIM Paris 2026 promotional key visual with a green gradient and illustrated Paris landmarks"
     },
     "3": {
       "name": "Community Over Code Asia 2026",
-      "detail": "Beijing · The Apache Software Foundation",
-      "scale": "Community conference",
+      "detail": "Beijing · Apache Software Foundation",
+      "scale": "Hundreds of attendees",
       "imageAlt": "Official Beijing skyline key visual for Community Over Code Asia 2026"
     },
     "4": {
@@ -254,9 +164,9 @@
     }
   },
   "seo": {
-    "homeTitle": "HEN LOCAL Live Translator — On your own Mac",
-    "homeDescription": "Live bilingual captions and translated speech on your Apple silicon Mac. The full release is launching soon. Complete the survey to download the free beta.",
-    "contactTitle": "Mac beta survey — HEN LOCAL Live Translator",
-    "contactDescription": "Complete the survey to get the free Mac beta of HEN LOCAL Live Translator. The download link appears after submission."
+    "homeTitle": "HEN LOCAL Live Translator for Mac",
+    "homeDescription": "Get live bilingual captions and translated speech on your Mac. Launching soon. Submit the survey to download the free beta.",
+    "contactTitle": "Beta survey — HEN LOCAL Live Translator",
+    "contactDescription": "Submit the survey to download the free Mac beta."
   }
 }
