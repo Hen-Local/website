@@ -19,6 +19,7 @@ const navHrefs = ["#how-it-works", "#projects", "#why-local", "#use-cases"] as c
 export default function HomePage() {
   const locale = useLocale();
   const t = useTranslations("home");
+  const common = useTranslations("common");
   const eventT = useTranslations("events");
   const homeMessages = useMessages().home;
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
@@ -28,7 +29,7 @@ export default function HomePage() {
   }
   const nav = messageKeys("nav").map((index) => t(`nav.${index}`));
   const localValues = messageKeys("localValues").map((index) => [t(`localValues.${index}.0`), t(`localValues.${index}.1`)] as const);
-  const useCases = messageKeys("useCases").map((index) => [t(`useCases.${index}.0`), t(`useCases.${index}.1`), t(`useCases.${index}.2`)] as const);
+  const useCases = messageKeys("useCases").map((index) => [t(`useCases.${index}.0`), t(`useCases.${index}.1`)] as const);
   const faqs = messageKeys("faqs").map((index) => [t(`faqs.${index}.0`), t(`faqs.${index}.1`)] as const);
   const projects = events.map((event) => ({ ...event, name: eventT(`${event.id}.name`), detail: eventT(`${event.id}.detail`), scale: eventT(`${event.id}.scale`), imageAlt: eventT(`${event.id}.imageAlt`) }));
 
@@ -37,13 +38,13 @@ export default function HomePage() {
       <header className="site-header">
         <a className="brand" href="#top" aria-label={t("homeLabel")}>
           <span className="brand-mark" aria-hidden="true"><img src="/logo-mark.png" width="1024" height="1024" alt="" /></span>
-          <span className="brand-copy"><strong>{t("brandName")}</strong><small>{t("productName")}</small></span>
+          <span className="brand-copy"><strong>{common("brandName")}</strong><small>{common("productName")}</small></span>
         </a>
         <nav aria-label={t("navLabel")}>
           {nav.map((item, index) => <a href={navHrefs[index]} key={item}>{item}</a>)}
         </nav>
         <div className="header-actions">
-          <a className="contact-link" href={contactHref}>{t("contactLink")}</a>
+          <a className="contact-link" href={contactHref}>{common("downloadBeta")}</a>
           <LanguageSwitcher page="home" />
         </div>
       </header>
@@ -53,22 +54,22 @@ export default function HomePage() {
           <div className="eyebrow-row"><span className="pill"><i /> {t("edition")}</span></div>
           <h1 className="hero-title" id="product-title">{t("hero.0")}<br /><em>{t("hero.1")}</em></h1>
           <p className="hero-lede">{t("lede")}</p>
-          <p className="beta-invite">{t("betaInvite")}</p>
+          <p className="beta-invite">{common("surveyNote")}</p>
           <div className="hero-actions">
-            <a className="button button-primary" href={contactHref}>{t("surveyCta")}</a>
-            <a className="button button-light" href="#how-it-works">{t("seeHow")} <span aria-hidden="true">↓</span></a>
+            <a className="button button-primary" href={contactHref}>{common("downloadBeta")}</a>
+            <a className="button button-light" href="#how-it-works">{t("nav.0")} <span aria-hidden="true">↓</span></a>
           </div>
-          <p className="requirements">{t("requirements")}</p>
+          <p className="requirements">{common("macRequirements")}</p>
         </div>
 
         <div className="product-stage" aria-label={t("previewLabel")}>
           <div className="stage-accent" />
           <div className="app-window">
             <div className="window-bar">
-              <div className="window-brand"><img src="/logo-mark.png" width="1024" height="1024" alt="" /><div><strong>{t("brandName")}</strong><span>{t("productName")}</span></div></div>
+              <div className="window-brand"><img src="/logo-mark.png" width="1024" height="1024" alt="" /><div><strong>{common("brandName")}</strong><span>{common("productName")}</span></div></div>
               <span className="ready"><i /> {t("app.ready")}</span>
             </div>
-            <div className="route-label">01&nbsp;&nbsp; {t("app.route")}</div>
+            <div className="route-label">{t("app.route")}</div>
             <div className="language-route">
               <div><span>{t("app.source")}</span><strong>{t("app.sourceValue")}</strong></div><b aria-hidden="true">⇄</b><div><span>{t("app.target")}</span><strong>{t("app.targetValue")}</strong></div>
             </div>
@@ -76,16 +77,15 @@ export default function HomePage() {
             <div className="launch-row"><span>{t("app.input")}</span><strong>{t("app.start")}&nbsp; →</strong></div>
           </div>
           <div className="subtitle-card">
-            <div className="subtitle-topline"><span><i /> {t("app.live")}</span><span>EN → 中文</span></div>
-            <p>{t("app.sampleSource")}</p><strong>{t("app.sampleTarget")}</strong>
+            <div className="subtitle-topline"><span><i /> {t("app.live")}</span><span>{t("app.sourceValue")} → {t("app.targetValue")}</span></div>
+            <p lang="en">{t("app.sampleSource")}</p><strong lang="zh-CN">{t("app.sampleTarget")}</strong>
           </div>
         </div>
       </section>
 
       <section className="workflow-section" id="how-it-works" aria-labelledby="workflow-title">
         <div className="workflow-intro">
-          <span className="story-label">{t("howTag")}</span>
-          <h2 id="workflow-title">{t("howTitle")}</h2>
+          <h2 id="workflow-title">{t("nav.0")}</h2>
         </div>
         <WorkflowDiagram locale={locale} labels={{ diagramLabel: t("diagramLabel") }} />
       </section>
@@ -93,7 +93,7 @@ export default function HomePage() {
       <ProjectCarousel projects={projects} />
 
       <section className="privacy-section" id="why-local">
-        <div className="privacy-heading"><span className="story-label">{t("whyTag")}</span><h2>{t("privacyTitle.0")}<br />{t("privacyTitle.1")}</h2></div>
+        <div className="privacy-heading"><h2>{t("nav.2")}</h2></div>
         <p className="privacy-summary">{t("privacyCopy")}</p>
         <div className="local-value-list">{localValues.map(([title, copy], index) => <div key={title}><span>0{index + 1}</span><p><strong>{title}</strong>{copy}</p></div>)}</div>
         <SpotIllustration name="privacy-local" className="privacy-illustration" />
@@ -101,12 +101,11 @@ export default function HomePage() {
 
       <section className="use-cases-section" id="use-cases">
         <div className="use-cases-heading">
-          <span className="story-label">{t("useCasesTag")}</span>
-          <div><h2>{t("useCasesTitle.0")}<br />{t("useCasesTitle.1")}</h2><p>{t("useCasesIntro")}</p></div>
+          <h2>{t("nav.3")}</h2>
         </div>
         <div className="use-case-grid">
-          {useCases.map(([title, copy, meta], index) => <article key={title}>
-            <div className="use-case-heading"><div className="use-case-meta"><span>0{index + 1}</span><small>{meta}</small></div><h3>{title}</h3></div>
+          {useCases.map(([title, copy], index) => <article key={title}>
+            <h3>{title}</h3>
             <SpotIllustration name={sceneIllustrations[index]} className="use-case-illustration" />
             <p>{copy}</p>
           </article>)}
@@ -114,7 +113,7 @@ export default function HomePage() {
       </section>
 
       <section className="faq-section" id="faq">
-        <div className="faq-heading"><span className="story-label">{t("faqTag")}</span><h2>{t("faqTitle")}</h2></div>
+        <div className="faq-heading"><h2>{t("faqTitle")}</h2></div>
         <div className="faq-list">{faqs.map(([question, answer], index) => <article className={activeFaq === index ? "is-active" : ""} key={question}>
           <button type="button" aria-expanded={activeFaq === index} aria-controls={`faq-answer-${index}`} onClick={() => setActiveFaq((current) => current === index ? null : index)}><span>0{index + 1}</span>{question}<b aria-hidden="true">＋</b></button>
           <div className="faq-answer" id={`faq-answer-${index}`} aria-hidden={activeFaq !== index}><div className="faq-answer-content">
@@ -126,15 +125,14 @@ export default function HomePage() {
 
       <section className="access-section">
         <div className="access-mark"><img src="/logo-mark.png" width="1024" height="1024" alt="" /></div>
-        <div><span className="section-tag">{t("commercialTag")}</span><h2>{t("commercialTitle.0")}<br />{t("commercialTitle.1")}</h2><p>{t("commercialCopy")}</p></div>
-        <div className="access-actions"><a className="button button-accent" href={contactHref}>{t("surveyCta")}</a></div>
+        <div><h2>{t("commercialTitle")}</h2><p>{common("surveyNote")}</p></div>
+        <div className="access-actions"><a className="button button-accent" href={contactHref}>{common("downloadBeta")}</a></div>
       </section>
 
       <footer>
-        <a className="brand footer-brand" href="#top"><span className="brand-mark"><img src="/logo-mark.png" width="1024" height="1024" alt="" /></span><span className="brand-copy"><strong>{t("brandName")}</strong><small>{t("productName")}</small></span></a>
-        <p>{t("footerLine")}</p>
-        <div><a href="#why-local">{t("footerLinks.0")}</a><a href="#how-it-works">{t("footerLinks.1")}</a><a href="#use-cases">{t("footerLinks.2")}</a><a href={contactHref}>{t("footerLinks.3")}</a></div>
-        <small>© {new Date().getFullYear()} {t("brandName")}</small>
+        <a className="brand footer-brand" href="#top"><span className="brand-mark"><img src="/logo-mark.png" width="1024" height="1024" alt="" /></span><span className="brand-copy"><strong>{common("brandName")}</strong><small>{common("productName")}</small></span></a>
+        <div><a href="#why-local">{t("nav.2")}</a><a href="#how-it-works">{t("nav.0")}</a><a href="#use-cases">{t("nav.3")}</a><a href={contactHref}>{common("downloadBeta")}</a></div>
+        <small>© {new Date().getFullYear()} {common("brandName")}</small>
       </footer>
     </main>
   );
